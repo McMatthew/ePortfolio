@@ -1,0 +1,212 @@
+.timeline {
+  position: relative;
+  border-right: 2px solid var(--gray-100);
+}
+.timeline_step {
+  border-left: 1px solid var(--secondary-text-color);
+  height: 80px;
+  cursor: pointer;
+}
+.timeline_step_dashed {
+  border-left: 1px dashed var(--secondary-text-color);
+  height: 80px;
+  cursor: pointer;
+}
+.timeline_step_dot {
+  width: 24px;
+  height: 24px;
+  border: 5px solid var(--primary-color);
+  border-radius: 32px;
+  position: absolute;
+  left: -11px;
+  transition: 0.5s;
+  background-color: white;
+}
+.timeline_step_date {
+  font-size: 0.5rem;
+  color: var(--primary-color);
+}
+.logo {
+  width: 4rem;
+  height: auto;
+  filter: grayscale(1);
+  transition: 0.2s;
+  opacity: 0.6;
+}
+.logo[data-highlight="true"] {
+  filter: none;
+  opacity: 1;
+}
+.logos {
+  justify-items: center;
+}
+.logos img {
+  width: auto;
+  height: 3.5rem;
+}
+
+.libraries_title {
+  text-transform: uppercase;
+  font-weight: 100;
+  letter-spacing: 0.7rem;
+  font-size: 1.5rem;
+  line-height: 1.6rem;
+  margin-bottom: 0.5rem;
+}
+.libraries_divider {
+  margin-block: 0;
+  color: var(--darkblue-900);
+  margin-bottom: 1.5rem;
+}
+.libraries {
+  background-color: var(--darkblue-900);
+  color: #c5c5c5;
+  padding: 1rem;
+  border-radius: 1.5rem;
+  margin-block: 0.5rem;
+}
+.libraries b {
+  color: white;
+}
+.libraries h1 {
+  font-weight: 200;
+  color: white;
+  letter-spacing: 0.25rem;
+  text-transform: uppercase;
+  font-style: italic;
+}
+
+.scroll_projects {
+  border: 2px solid var(--gray-100);
+  border-radius: 0.75rem;
+  background: rgb(1, 1, 11);
+  background-color: radial-gradient(
+    circle,
+    rgba(1, 1, 11, 1) 0%,
+    rgba(19, 26, 57, 1) 30%,
+    rgba(14, 19, 41, 1) 60%,
+    rgba(0, 0, 0, 1) 100%
+  );
+  background-image: url("../../../img/space.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.scroll_projects_thumb::before {
+  content: "";
+}
+.knoledge_gallery {
+  text-align: left;
+  height: auto;
+  margin: 2rem;
+}
+.knoledge_gallery img {
+  width: 40vw;
+  height: auto;
+  border-radius: 2rem;
+}
+.knoledge_gallery .project_card {
+  margin: 0 auto;
+  background: rgba(207, 199, 194, 0.43);
+  border-radius: 10px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(223, 223, 223, 0.4);
+  backdrop-filter: blur(8.1px);
+  -webkit-backdrop-filter: blur(8.1px);
+  display: flex;
+  flex-wrap: wrap;
+  padding: 0.75rem 0.75rem 0.75rem 1.25rem;
+  position: relative;
+  transition: 0.25s;
+}
+.knoledge_gallery .project_card[data-visible="false"] {
+  opacity: 0.5;
+  transform: scale(0.95);
+  transition: 0.25s;
+}
+.knoledge_gallery .project_card::before {
+  content: "";
+  position: absolute;
+  top: 0.5rem;
+  bottom: 0.5rem;
+  left: 0.5rem;
+  background-color: var(--primary-color);
+  width: 0.25rem;
+  border-radius: 1rem;
+}
+.knoledge_gallery .project_card img {
+  width: 8rem;
+  height: 8rem;
+  border-radius: 0.5rem;
+  background-color: white;
+  padding: 0.5rem;
+  flex-shrink: 0;
+}
+.knoledge_gallery .project_card .infos {
+  flex-shrink: 1;
+}
+.knoledge_gallery .project_card .title {
+  font-size: 1rem;
+  font-weight: 700;
+  margin: 0 0 0.25rem 0;
+  color: white;
+}
+.knoledge_gallery .project_card .description {
+  font-size: 1rem;
+  font-weight: 300;
+  color: whitesmoke;
+  opacity: 0.8;
+}
+.knoledge_gallery .project_card .badge_list {
+  width: 100%;
+  flex-basis: 100%;
+  margin-top: 0.5rem;
+}
+.knoledge_gallery .project_card .badge_list .badge[id="React"] {
+  background-color: #2664d855;
+  color: #9db8e9;
+}
+.knoledge_gallery .project_card .badge_list .badge[id="REST"] {
+  background-color: #179c4355;
+  color: #63a378;
+}
+.knoledge_gallery .project_card .badge_list .badge[id="NoSQL"] {
+  background-color: #21795455;
+  color: #8ce5c0;
+}
+.knoledge_gallery .project_card .badge_list .badge[id="SQL"] {
+  background-color: #d87c2655;
+  color: #ca9a6d;
+}
+.knoledge_gallery .project_card .badge_list .badge[id="Kotlin"] {
+  background-color: #c24bda55;
+  color: #e0a2ec;
+}
+.knoledge_gallery .project_card .badge_list .badge[id="Kube"] {
+  background-color: #4d26d855;
+  color: #a596df;
+}
+.knoledge_gallery .project_card .badge_list .badge[id="Quarkus"] {
+  background-color: #3c558355;
+  color: #a0b9e5;
+}
+.knoledge_gallery .project_card .badge_list .badge[id="Firebase"] {
+  background-color: #ff990055;
+  color: #e6c189;
+}
+.knoledge_gallery .project_card .badge_list .badge[id="AWS"] {
+  background-color: #ff480055;
+  color: #ebb39d;
+}
+.knoledge_gallery .project_card .badge_list .badge[id="Redux"] {
+  background-color: #b700ff55;
+  color: #c2a0df;
+}
+.knoledge_gallery .project_card .badge_list .badge[id="Next"] {
+  background-color: #00000055;
+  color: #bdbdbd;
+}
+
+.goto_about {
+  margin-block: 1rem;
+  width: 100%;
+}

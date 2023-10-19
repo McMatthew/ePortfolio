@@ -1,19 +1,16 @@
 "use client";
 import { Box, Button, Flex } from "@mantine/core";
 import styles from "./navbar.module.css";
-import { badgeMark } from "../fonts";
+import { badgeMark } from "../../fonts";
+import { useNavigation } from "@/app/context/navigationContext";
 
-interface params {
-  activeTab: string;
-  setActivetab: (x: string) => void;
+enum TABS_TITLES {
+  WORK = "experience",
+  ABOUT = "about",
+  ME = "me...",
 }
-
-const Navbar = ({ activeTab, setActivetab }: params) => {
-  enum TABS_TITLES {
-    WORK = "work",
-    ABOUT = "about",
-    ME = "me...",
-  }
+const Navbar = () => {
+  const { location, setLocation } = useNavigation();
 
   return (
     <Flex
@@ -24,22 +21,22 @@ const Navbar = ({ activeTab, setActivetab }: params) => {
       <Box className={`${styles.badge} ${badgeMark.className}`}>MB</Box>
       <Button
         className={styles.tab_button}
-        data-active={activeTab === TABS_TITLES.WORK}
-        onClick={() => setActivetab(TABS_TITLES.WORK)}
+        data-active={location === TABS_TITLES.WORK}
+        onClick={() => setLocation(TABS_TITLES.WORK)}
       >
         {TABS_TITLES.WORK}
       </Button>
       <Button
         className={styles.tab_button}
-        data-active={activeTab === TABS_TITLES.ABOUT}
-        onClick={() => setActivetab(TABS_TITLES.ABOUT)}
+        data-active={location === TABS_TITLES.ABOUT}
+        onClick={() => setLocation(TABS_TITLES.ABOUT)}
       >
         {TABS_TITLES.ABOUT}
       </Button>
       <Button
         className={styles.tab_button}
-        data-active={activeTab === TABS_TITLES.ME}
-        onClick={() => setActivetab(TABS_TITLES.ME)}
+        data-active={location === TABS_TITLES.ME}
+        onClick={() => setLocation(TABS_TITLES.ME)}
       >
         {TABS_TITLES.ME}
       </Button>

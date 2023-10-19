@@ -1,0 +1,17 @@
+.section {
+  width: 100%;
+  text-align: center;
+  background: white;
+  color: var(--primary-text-color);
+  z-index: 2;
+  border-top-right-radius: 2rem;
+  border-top-left-radius: 2rem;
+}
+
+.title {
+  font-size: 3rem;
+  margin-left: 28px;
+}
+.capital {
+  color: var(--primary-color);
+}
