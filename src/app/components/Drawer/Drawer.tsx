@@ -6,7 +6,7 @@ const Drawer = (
   props: Partial<DrawerProps> & { navigationTrigger: string },
 ) => {
   const { location, setLocation } = useNavigation();
-  const { navigationTrigger, keepMounted = true, ...others } = props;
+  const { navigationTrigger, keepMounted = true, title, ...others } = props;
 
   return (
     <MantineDrawer.Root
@@ -25,7 +25,7 @@ const Drawer = (
         <MantineDrawer.Header>
           <MantineDrawer.Title>
             <Flex w={"100%"} justify={"center"}>
-              {props.title}
+              {title}
             </Flex>
           </MantineDrawer.Title>
           <MantineDrawer.CloseButton />

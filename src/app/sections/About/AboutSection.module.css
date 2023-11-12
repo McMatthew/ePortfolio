@@ -1,0 +1,17 @@
+.profile_grid {
+  justify-items: center;
+}
+.profile_picture {
+  display: block;
+  width: 23rem;
+  height: auto;
+  margin: 0 auto;
+}
+.profile_generality {
+  width: 30rem;
+  height: auto;
+}
+
+.section .title {
+  font-size: 32px;
+}

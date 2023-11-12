@@ -2,7 +2,7 @@ import HomePage from "./sections/Home/HomePage";
 import styles from "./page.module.css";
 import WorkSection from "./sections/Work/workSection";
 import { NavigationProvider } from "./context/navigationContext";
-import About from "./sections/About/AboutSection";
+import AboutSection from "./sections/About/AboutSection";
 
 export default function Home() {
   return (
@@ -10,7 +10,7 @@ export default function Home() {
       <NavigationProvider>
         <HomePage />
         <WorkSection />
-        <About />
+        <AboutSection />
       </NavigationProvider>
     </main>
   );
