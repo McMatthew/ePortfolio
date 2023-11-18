@@ -138,3 +138,8 @@ a {
 .mantine-Drawer-close {
   margin-left: 0;
 }
+
+@keyframes departure {
+  from { transform: translateX(var(--vibration-width)) }
+  to { transform: translateX(calc(0px - var(--vibration-width))) }
+}

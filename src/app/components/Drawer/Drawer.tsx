@@ -1,3 +1,4 @@
+"use client";
 import { DrawerProps, Flex, Drawer as MantineDrawer } from "@mantine/core";
 import classes from "./Drawer.module.css";
 import { useNavigation } from "@/app/context/navigationContext";

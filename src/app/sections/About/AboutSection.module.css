@@ -1,3 +1,7 @@
+#root {
+  --vibration-width: 0
+}
+
 .profile_grid {
   justify-items: center;
 }
