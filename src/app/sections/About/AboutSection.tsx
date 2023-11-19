@@ -31,7 +31,10 @@ const AboutSection = () => {
   };
 
   useEffect(() => {
-    if (vibrationCount === 100) setLocation("me...");
+    if (vibrationCount === 100) {
+      setLocation("me...");
+      setVibrationCount(0);
+    }
   }, [vibrationCount]);
 
   return (
