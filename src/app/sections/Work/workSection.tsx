@@ -184,6 +184,7 @@ const WorkSection = () => {
             </Box>
             <Box m={"0 auto"} w="60%">
               <Button
+                size={"lg"}
                 onClick={() => setLocation("about")}
                 className={styles.goto_about}
               >
