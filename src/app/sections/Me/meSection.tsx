@@ -108,7 +108,7 @@ const MeSection = () => {
                       Curriculum vitae
                     </Title>
                   </Group>
-                  <Link download={"curriculum"} href={"/cv.pdf"} />
+                  <Link download={"curriculum"} href={"/cvMatteo.pdf"} />
                   <Button
                     className={styles.cardButton}
                     radius={"3rem"}
