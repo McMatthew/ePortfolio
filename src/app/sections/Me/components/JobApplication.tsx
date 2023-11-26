@@ -43,14 +43,16 @@ export const JobApplication = () => {
               Un personale riepilogo, molto sintetico, di quali strumenti
               conosco e le esperienze fatte fino ad oggi
             </Text>
-            <Link download href={"/cvMatteo.pdf"} />
-            <Button
-              className={styles.cardButton}
-              radius={"3rem"}
-              variant={"outline"}
-            >
-              Scarica
-            </Button>
+            <Link passHref href={"/cvMatteo.pdf"} />
+            <a download>
+              <Button
+                className={styles.cardButton}
+                radius={"3rem"}
+                variant={"outline"}
+              >
+                Scarica
+              </Button>
+            </a>
           </Box>
         </Paper>
         <Paper miw={700} className={styles.card}>
@@ -75,14 +77,16 @@ export const JobApplication = () => {
               di lavoro ad assumermi
             </Text>
             <Link download href={"/Lettera_presentazione.pdf"} />
-            <Button
-              color={"teal"}
-              className={styles.cardButton}
-              radius={"3rem"}
-              variant={"outline"}
-            >
-              Scarica
-            </Button>
+            <a download>
+              <Button
+                color={"teal"}
+                className={styles.cardButton}
+                radius={"3rem"}
+                variant={"outline"}
+              >
+                Scarica
+              </Button>
+            </a>
           </Box>
         </Paper>
       </Flex>
