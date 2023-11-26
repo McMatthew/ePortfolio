@@ -5,3 +5,13 @@
   border-top-left-radius: 1rem;
   border-top-right-radius: 1rem;
 }
+.drawer_header {
+  position: relative;
+}
+.drawer_header_blur {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  filter: blur(4px);
+}

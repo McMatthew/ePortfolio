@@ -1,5 +1,5 @@
 "use client";
-import { DrawerProps, Flex, Drawer as MantineDrawer } from "@mantine/core";
+import { DrawerProps, Flex, Drawer as MantineDrawer, Box } from "@mantine/core";
 import classes from "./Drawer.module.css";
 import { useNavigation } from "@/app/context/navigationContext";
 
@@ -23,12 +23,13 @@ const Drawer = (
     >
       <MantineDrawer.Overlay />
       <MantineDrawer.Content className={classes.drawer_content}>
-        <MantineDrawer.Header>
+        <MantineDrawer.Header className={classes.drawer_header}>
           <MantineDrawer.Title>
             <Flex w={"100%"} justify={"center"}>
               {title}
             </Flex>
           </MantineDrawer.Title>
+          <Box className={classes.drawer_header_blur} />
           <MantineDrawer.CloseButton />
         </MantineDrawer.Header>
         <MantineDrawer.Body>{props.children}</MantineDrawer.Body>

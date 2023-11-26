@@ -1,16 +1,9 @@
 .contacts {
-    background: rgb(23,60,94);
-    background: -moz-linear-gradient(140deg, rgb(48 105 214) 0%, rgb(56 100 145 / 86%) 59%, rgb(148 187 227 / 77%) 100%);
-    background: -webkit-linear-gradient(140deg,  rgb(48 105 214) 0%, rgb(56 100 145 / 86%) 59%, rgb(148 187 227 / 77%) 100%);
-    background: linear-gradient(140deg, rgb(48 105 214) 0%, rgb(56 100 145 / 86%) 59%, rgb(148 187 227 / 77%) 100%);
-    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#173c5e",endColorstr="#7190b3",GradientType=1);
-    padding: 1.5rem;
-    margin: 0.7rem 0 0 0.7rem;
+    background: rgb(40,89,96);
+    background: linear-gradient(153deg, rgba(40,89,96,1) 0%, rgba(72,81,109,1) 46%, rgba(105,71,131,1) 100%);
+    padding: 1.2rem 1rem;
     border-radius: 1rem;
     color: antiquewhite;
-    box-shadow: -10px -6px 24px -14px rgba(129, 129, 129, 0.75);
-    -webkit-box-shadow: -10px -6px 24px -14px rgba(121, 121, 121, 0.75);
-    -moz-box-shadow: -10px -6px 24px -14px rgba(129, 128, 128, 0.75);
 }
 .link {
     color: #ffffff;
@@ -28,7 +21,7 @@
 .application{
     height: 100%;
     border-radius: 1.2rem;
-    padding: 1.25rem 1rem;
+    padding: 1.25rem 0;
     background: rgb(23,60,94);
     background: -moz-linear-gradient(140deg, rgba(23,60,94,1) 0%, rgba(40,36,71,1) 100%);
     background: -webkit-linear-gradient(140deg, rgba(23,60,94,1) 0%, rgba(40,36,71,1) 100%);
@@ -36,7 +29,6 @@
     filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#173c5e",endColorstr="#282447",GradientType=1);
 }
 .card{
-    margin-top: 2rem;
     min-width: 500px;
     min-height: 500px;
     position: relative;
@@ -55,10 +47,17 @@
     transform: translateY(-0.25rem);
     box-shadow: 0 10px 27px 0 rgba(125, 197, 218, 0.17);
 }
-.cardImage{
+.cardImage_cv{
     width: 100%;
     min-height: 325px;
     background-image: url("../../../img/cv.png");
+    background-position: center;
+    background-size: cover;
+}
+.cardImage_lp{
+    width: 100%;
+    min-height: 325px;
+    background-image: url("../../../img/handshake.jpg");
     background-clip: content-box;
     background-position: center;
     background-attachment: fixed;
@@ -67,6 +66,41 @@
     position: absolute;
     bottom: 10px;
     right: 10px;
+}
+.carousel {
+    overflow-x: auto;
+}
+
+.contact{
+    overflow: hidden;
+    --brand-color: #fefefe;
+    cursor: pointer;
+}
+.contact_icon{
+    z-index: 2;
+    padding: 0.25rem;
+    height: 50px;
+    border-radius: 5px;
+    background: var(--brand-color);
+}
+.contact_plate{
+    font-size: 1.25rem;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    padding-left: 56px;
+    border-radius: 5px;
+    width: 100%;
+    transform: translateX(-100%);
+    transition: 0.25s ease;
+    opacity: 0;
+    z-index: 1;
+    line-height: 50px;
+    background: var(--brand-color);
+}
+.contact:hover .contact_plate{
+    transform: none;
+    opacity: 1;
 }
 
 @keyframes slide-up {

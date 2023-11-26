@@ -2,10 +2,8 @@ import Drawer from "@/app/components/Drawer/Drawer";
 import commonStyles from "@/app/sections/common.module.css";
 import styles from "./meSection.module.css";
 import { badgeMark } from "@/app/fonts";
-import img from "../../../img/secretary.png";
 import {
   Box,
-  Button,
   Flex,
   Grid,
   GridCol,
@@ -19,13 +17,42 @@ import Marquee from "react-fast-marquee";
 import {
   IconBrandGithub,
   IconBrandLinkedin,
-  IconBriefcase,
-  IconFileFilled,
   IconMailbox,
   IconPhone,
 } from "@tabler/icons-react";
 import Link from "next/link";
-import Image from "next/image";
+import { JobApplication } from "@/app/sections/Me/components/JobApplication";
+import React from "react";
+
+function SocialPlate({
+  url,
+  placeHolder,
+  Icon,
+  sitename,
+  color,
+}: {
+  Icon: React.ReactElement;
+  placeHolder: string;
+  url: string;
+  sitename: string;
+  color: string;
+}) {
+  return (
+    <Link target={"_blank"} href={url}>
+      <Group
+        style={{ "--brand-color": color }}
+        className={styles.contact}
+        pos={"relative"}
+      >
+        <Box className={styles.contact_plate} pos={"absolute"}>
+          {placeHolder}
+        </Box>
+        <span className={styles.contact_icon}>{Icon}</span>
+        <Text size={"1.5rem"}>{sitename}</Text>
+      </Group>
+    </Link>
+  );
+}
 
 const MeSection = () => {
   return (
@@ -91,40 +118,9 @@ const MeSection = () => {
         mt={"2rem "}
       >
         <GridCol pos={"relative"} span={22}>
-          <Box className={styles.application}>
-            <Group gap={4}>
-              <IconBriefcase color={"white"} size={36} />
-              <Title c={"white"} className={badgeMark.className}>
-                Documenti per candidature
-              </Title>
-            </Group>
-            <Flex p={"1rem"}>
-              <Paper className={styles.card}>
-                <Box className={styles.cardImage} />
-                <Box pos={"relative"} style={{ flexGrow: 1 }} p={"0.75rem"}>
-                  <Group c={"gray.2"} gap={2}>
-                    <IconFileFilled />
-                    <Title order={1} fw={500}>
-                      Curriculum vitae
-                    </Title>
-                  </Group>
-                  <Link download={"curriculum"} href={"/cvMatteo.pdf"} />
-                  <Button
-                    className={styles.cardButton}
-                    radius={"3rem"}
-                    variant={"outline"}
-                  >
-                    Scarica
-                  </Button>
-                </Box>
-              </Paper>
-              <Stack>
-                <Box></Box>
-              </Stack>
-            </Flex>
-          </Box>
+          <JobApplication />
         </GridCol>
-        <GridCol h={"100%"} span={8}>
+        <GridCol pos={"relative"} h={"100%"} span={8}>
           <Paper h={"100%"} className={styles.contacts}>
             <Flex h={"100%"} direction={"column"}>
               <Title className={badgeMark.className}>Contatti</Title>
@@ -132,54 +128,36 @@ const MeSection = () => {
                 Non esitare a contattarmi, per qualunque informazione su di me o
                 su delle opportunità da propormi
               </Text>
-              <Stack style={{ flexGrow: 1 }}>
-                <Flex>
-                  <IconMailbox />
-                  <Text mr={4}>Email: </Text>
-                  <Link
-                    className={styles.link}
-                    href={"mailto:matteo.bianchi003@outlook.it"}
-                  >
-                    matteo.bianchi003@outlook.it
-                  </Link>
-                </Flex>
-                <Flex>
-                  <IconPhone />
-                  <Text mr={4}>Phone: </Text>
-                  <Link className={styles.link} href={"phoneto:+393922758741"}>
-                    +39 392 275 8741
-                  </Link>
-                </Flex>
-                <Flex>
-                  <IconBrandLinkedin />
-                  <Text mr={4}>LinkedIn: </Text>
-                  <Link
-                    className={styles.link}
-                    target={"_blank"}
-                    href={
-                      "https://www.linkedin.com/in/matteo-bianchi-701b76263/"
-                    }
-                  >
-                    matteo-bianchi
-                  </Link>
-                </Flex>
-                <Flex>
-                  <IconBrandGithub />
-                  <Text mr={4}>GitHub: </Text>
-                  <Link
-                    className={styles.link}
-                    href={"https://github.com/McMatthew"}
-                    target={"_blank"}
-                  >
-                    McMatthew
-                  </Link>
-                </Flex>
+              <Stack w={"50%"}>
+                <SocialPlate
+                  placeHolder={"Gmail"}
+                  Icon={<IconMailbox size={42} />}
+                  url={"mailto:bianchimatteolab@gmail.com"}
+                  sitename={"Email"}
+                  color={"#ff5e5e"}
+                />
+                <SocialPlate
+                  placeHolder={"392 275 8741"}
+                  Icon={<IconPhone size={42} />}
+                  url={"Tel:+393922758741"}
+                  sitename={"Cellulare"}
+                  color={"#f8ac1f"}
+                />
+                <SocialPlate
+                  placeHolder={"Matteo Bianchi"}
+                  Icon={<IconBrandLinkedin size={42} />}
+                  url={"https://www.linkedin.com/in/matteo-bianchi-701b76263/"}
+                  sitename={"LinkedIn"}
+                  color={"#086ff5"}
+                />
+                <SocialPlate
+                  placeHolder={"McMatthew"}
+                  Icon={<IconBrandGithub size={42} />}
+                  url={"https://github.com/McMatthew"}
+                  sitename={"GitHub"}
+                  color={"#9036f1"}
+                />
               </Stack>
-              <Image
-                className={styles.imageContact}
-                src={img}
-                alt={"secretary"}
-              />
             </Flex>
           </Paper>
         </GridCol>
