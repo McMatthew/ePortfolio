@@ -1,5 +1,5 @@
 "use client";
-import { DrawerProps, Flex, Drawer as MantineDrawer, Box } from "@mantine/core";
+import { Box, Drawer as MantineDrawer, DrawerProps, Flex } from "@mantine/core";
 import classes from "./Drawer.module.css";
 import { useNavigation } from "@/app/context/navigationContext";
 
@@ -13,7 +13,7 @@ const Drawer = (
     <MantineDrawer.Root
       translate="yes"
       position="bottom"
-      size={"calc(100vh - 76px)"}
+      size={"calc(100% - 76px)"}
       closeOnClickOutside={false}
       opened={location === navigationTrigger}
       onClose={() => setLocation("")}

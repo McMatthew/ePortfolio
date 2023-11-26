@@ -1,6 +1,6 @@
 "use client";
 
-import { Divider, MantineProvider, createTheme } from "@mantine/core";
+import { createTheme, Divider, MantineProvider } from "@mantine/core";
 import { ReactNode } from "react";
 import page_styles from "./app/page.module.css";
 

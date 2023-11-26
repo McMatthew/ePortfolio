@@ -1,4 +1,4 @@
-import { Poiret_One, Outfit } from "next/font/google";
+import { Outfit, Poiret_One, Sacramento } from "next/font/google";
 
 export const title = Poiret_One({ weight: "400", subsets: ["latin"] });
 export const defaultFont = Outfit({
@@ -10,3 +10,5 @@ export const lightFont = Outfit({
   subsets: ["latin"],
 });
 export const badgeMark = Outfit({ weight: "variable", subsets: ["latin"] });
+
+export const neon = Sacramento({ weight: "400", subsets: ["latin"] });

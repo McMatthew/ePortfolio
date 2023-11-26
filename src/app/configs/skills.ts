@@ -10,7 +10,6 @@ import {
   IconUsers,
   TablerIconsProps,
 } from "@tabler/icons-react";
-import { ReactElement } from "react";
 
 export interface ISkillGraph {
   [key: string]: {

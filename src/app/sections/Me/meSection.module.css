@@ -96,11 +96,27 @@
     opacity: 0;
     z-index: 1;
     line-height: 50px;
-    background: var(--brand-color);
+    background-color: rgba(53, 60, 61, 0.2);
+    border: 2px solid #76767655;
+}
+.contact p {
+    filter: blur(0);
+    transition: 0.25s;
 }
 .contact:hover .contact_plate{
     transform: none;
     opacity: 1;
+}
+.contact:hover p{
+    filter: blur(8px);
+}
+.contact_neon {
+    display: grid;
+    place-content: center;
+    text-align: center;
+    font-size: 5rem;
+    flex-grow: 1;
+    animation: flicker 1.5s infinite alternate;
 }
 
 @keyframes slide-up {
@@ -109,5 +125,23 @@
     }
     to{
         transform: translateY(-0.25rem);
+    }
+}
+
+@keyframes flicker {
+    0%, 19%, 21%, 23%, 25%, 54%, 56%, 100% {
+        --neon-text-color: #a332ff;
+        text-shadow:
+                -0.2rem -0.2rem 1rem #fff,
+                0.2rem 0.2rem 1rem #fff,
+                0 0 2rem var(--neon-text-color),
+                0 0 4rem var(--neon-text-color),
+                0 0 6rem var(--neon-text-color),
+                0 0 8rem var(--neon-text-color),
+                0 0 10rem var(--neon-text-color);
+    }
+
+    20%, 24%, 55% {
+        text-shadow: none;
     }
 }

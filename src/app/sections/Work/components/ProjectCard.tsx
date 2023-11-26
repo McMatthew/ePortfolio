@@ -3,7 +3,7 @@ import Image from "next/image";
 import styles from "../workSection.module.css";
 import { Project } from "@/app/configs/projects";
 import { useIntersection } from "@mantine/hooks";
-import { MutableRefObject, forwardRef } from "react";
+import { MutableRefObject } from "react";
 
 const ProjectCard = ({
   badgeList,

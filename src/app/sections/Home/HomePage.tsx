@@ -1,11 +1,10 @@
 "use client";
 import { Box, Button, Divider, Title } from "@mantine/core";
 import styles from "./HomePage.module.css";
-import { useState } from "react";
 import Navbar from "../../components/Navbar/navbar";
 import { title } from "@/app/fonts";
 import ReactImage from "@/app/components/ReactImage";
-import { IconChevronDown, IconRocket } from "@tabler/icons-react";
+import { IconRocket } from "@tabler/icons-react";
 import { useIntersectionObserver } from "@uidotdev/usehooks";
 import { useNavigation } from "@/app/context/navigationContext";
 

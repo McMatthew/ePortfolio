@@ -210,3 +210,13 @@
   margin-block: 1rem;
   width: 100%;
 }
+
+@media (max-width: 430px) {
+  .timeline {
+    border-right: 0;
+  }
+  .logos img {
+    width: 2rem;
+    height: auto;
+  }
+}

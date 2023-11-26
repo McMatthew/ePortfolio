@@ -3,7 +3,6 @@ import {
   Box,
   Button,
   Grid,
-  Group,
   ScrollArea,
   SimpleGrid,
   Space,
@@ -13,12 +12,8 @@ import {
 import styles from "./workSection.module.css";
 import commonStyles from "../common.module.css";
 import { badgeMark } from "../../fonts";
-import { useRef, useState } from "react";
-import descriptions from "./lifePeriodDesc";
+import { useRef } from "react";
 import Image from "next/image";
-import sgc from "../../../img/sida.svg";
-import isis from "../../../img/isis.jpg";
-import hwu from "../../../img/hwu.jpg";
 import bun from "../../../img/languages/bun.png";
 import c from "../../../img/languages/c.png";
 import js from "../../../img/languages/js.png";
@@ -46,22 +41,15 @@ import aws from "../../../img/languages/aws.jpg";
 import ProjectCard from "./components/ProjectCard";
 import { Projects } from "@/app/configs/projects";
 import Drawer from "../../components/Drawer/Drawer";
-import { IconRadar2, IconTelescope, IconTool } from "@tabler/icons-react";
+import { IconTelescope, IconTool } from "@tabler/icons-react";
 import { useNavigation } from "@/app/context/navigationContext";
-
-function setDotPosition(timelineStepIndex: number) {
-  return timelineStepIndex * 80 + 10;
-}
+import { Roadmap } from "@/app/sections/Work/components/roadmap";
+import { useMediaQuery } from "@mantine/hooks";
 
 const WorkSection = () => {
   const { setLocation } = useNavigation();
-  const [stepIndex, setStepIndex] = useState(2);
   const containerRef = useRef<HTMLDivElement>(null);
-  const lifeStep = [
-    { label: "Tirocinio - Hardware Upgrade", isPast: true, Date: "1/6/2021" },
-    { label: "Diploma di maturità", isPast: true, Date: "15/7/2022" },
-    { label: "Front-end dev SIDA Autosoft", isPast: false, Date: "18/7/2022" },
-  ];
+  const isMobile = useMediaQuery("(max-width: 430px)");
 
   return (
     <Drawer
@@ -74,64 +62,7 @@ const WorkSection = () => {
     >
       <Box className={commonStyles.section}>
         <Grid mih={"13rem"} justify="center" p={12}>
-          <Grid.Col>
-            <Box
-              fz={"2rem"}
-              className={`${commonStyles.title} ${badgeMark.className}`}
-            >
-              <IconRadar2 /> La mia roadmap
-            </Box>
-          </Grid.Col>
-          <Grid.Col ta={"left"} span={4}>
-            <Stack gap={0} className={styles.timeline}>
-              {lifeStep.map((step, index) => (
-                <Box
-                  key={step.label}
-                  pl={16}
-                  onClick={() => setStepIndex(index)}
-                  className={
-                    step.isPast
-                      ? styles.timeline_step_dashed
-                      : styles.timeline_step
-                  }
-                >
-                  {!step.isPast && (
-                    <Box
-                      top={setDotPosition(stepIndex)}
-                      className={styles.timeline_step_dot}
-                    />
-                  )}
-                  <Box className={styles.timeline_step_date}>{step.Date}</Box>
-                  {step.label}
-                </Box>
-              ))}
-            </Stack>
-          </Grid.Col>
-          <Grid.Col ta="justify" span={4}>
-            <Box>{descriptions[stepIndex]}</Box>
-          </Grid.Col>
-          <Grid.Col>
-            <Group mt={12} gap={"1rem"} justify="center">
-              <Image
-                data-highlight={stepIndex === 0}
-                className={styles.logo}
-                src={hwu}
-                alt="Logo Hardware Upgrade"
-              />
-              <Image
-                data-highlight={stepIndex === 1}
-                className={styles.logo}
-                src={isis}
-                alt="Logo isis Luino"
-              />
-              <Image
-                data-highlight={stepIndex === 2}
-                className={styles.logo}
-                src={sgc}
-                alt="Logo Sida autosoft multimedia srl"
-              />
-            </Group>
-          </Grid.Col>
+          <Roadmap />
           <Grid.Col>
             <Space h={"4rem"} />
           </Grid.Col>
@@ -144,7 +75,11 @@ const WorkSection = () => {
             </Box>
           </Grid.Col>
           <Grid.Col>
-            <SimpleGrid ml={22} className={styles.logos} cols={8}>
+            <SimpleGrid
+              ml={22}
+              className={styles.logos}
+              cols={isMobile ? 4 : 8}
+            >
               <Image alt="bun" src={bun} />
               <Image alt="vite" src={vite} />
               <Image alt="next" src={next} />
@@ -174,15 +109,20 @@ const WorkSection = () => {
           <Grid.Col>
             <Space h={"4rem"} />
           </Grid.Col>
-          <Grid.Col ta={"left"} span={6}>
-            <Box m={"0 auto"} w="60%" fz={"2rem"} fw={600}>
+          <Grid.Col ta={"left"} span={isMobile ? 12 : 6}>
+            <Box
+              m={"0 auto"}
+              w={isMobile ? "auto" : "60%"}
+              fz={"2rem"}
+              fw={600}
+            >
               I progetti:
             </Box>
-            <Box m={"0 auto"} fz={"1.6rem"} w="60%">
+            <Box m={"0 auto"} fz={"1.6rem"} w={isMobile ? "auto" : "60%"}>
               Tutti i progetti che ho seguito, gli strumenti che ho usato e
               qualche informazione su cosa servano
             </Box>
-            <Box m={"0 auto"} w="60%">
+            <Box m={"0 auto"} w={isMobile ? "auto" : "60%"}>
               <Button
                 size={"lg"}
                 onClick={() => setLocation("about")}
@@ -192,7 +132,7 @@ const WorkSection = () => {
               </Button>
             </Box>
           </Grid.Col>
-          <Grid.Col span={6}>
+          <Grid.Col span={isMobile ? 12 : 6}>
             <ScrollArea
               className={styles.scroll_projects}
               classNames={{ thumb: styles.scroll_projects_thumb }}

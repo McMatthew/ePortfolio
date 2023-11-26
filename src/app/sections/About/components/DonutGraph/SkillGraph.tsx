@@ -1,14 +1,14 @@
 import { ISkill } from "@/app/configs/skills";
 import {
-  RingProgress,
-  Text,
-  SimpleGrid,
-  Paper,
+  Box,
   Center,
   Group,
+  Paper,
   rem,
+  RingProgress,
+  SimpleGrid,
+  Text,
   Title,
-  Box,
 } from "@mantine/core";
 import styles from "./SkillGraph.module.css";
 

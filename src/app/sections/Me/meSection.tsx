@@ -1,58 +1,13 @@
 import Drawer from "@/app/components/Drawer/Drawer";
 import commonStyles from "@/app/sections/common.module.css";
 import styles from "./meSection.module.css";
-import { badgeMark } from "@/app/fonts";
-import {
-  Box,
-  Flex,
-  Grid,
-  GridCol,
-  Group,
-  Paper,
-  Stack,
-  Text,
-  Title,
-} from "@mantine/core";
+import { badgeMark, neon } from "@/app/fonts";
+import { Flex, Grid, GridCol, Paper, Stack, Text, Title } from "@mantine/core";
 import Marquee from "react-fast-marquee";
-import {
-  IconBrandGithub,
-  IconBrandLinkedin,
-  IconMailbox,
-  IconPhone,
-} from "@tabler/icons-react";
-import Link from "next/link";
 import { JobApplication } from "@/app/sections/Me/components/JobApplication";
 import React from "react";
-
-function SocialPlate({
-  url,
-  placeHolder,
-  Icon,
-  sitename,
-  color,
-}: {
-  Icon: React.ReactElement;
-  placeHolder: string;
-  url: string;
-  sitename: string;
-  color: string;
-}) {
-  return (
-    <Link target={"_blank"} href={url}>
-      <Group
-        style={{ "--brand-color": color }}
-        className={styles.contact}
-        pos={"relative"}
-      >
-        <Box className={styles.contact_plate} pos={"absolute"}>
-          {placeHolder}
-        </Box>
-        <span className={styles.contact_icon}>{Icon}</span>
-        <Text size={"1.5rem"}>{sitename}</Text>
-      </Group>
-    </Link>
-  );
-}
+import { SocialPlate } from "@/app/sections/Me/components/socialPlate";
+import { contacts } from "@/app/configs/contacts";
 
 const MeSection = () => {
   return (
@@ -124,40 +79,18 @@ const MeSection = () => {
           <Paper h={"100%"} className={styles.contacts}>
             <Flex h={"100%"} direction={"column"}>
               <Title className={badgeMark.className}>Contatti</Title>
-              <Text mb={"1.5rem"} size={"sm"}>
+              <Text mb={"1.5rem"} size={"lg"}>
                 Non esitare a contattarmi, per qualunque informazione su di me o
                 su delle opportunità da propormi
               </Text>
               <Stack w={"50%"}>
-                <SocialPlate
-                  placeHolder={"Gmail"}
-                  Icon={<IconMailbox size={42} />}
-                  url={"mailto:bianchimatteolab@gmail.com"}
-                  sitename={"Email"}
-                  color={"#ff5e5e"}
-                />
-                <SocialPlate
-                  placeHolder={"392 275 8741"}
-                  Icon={<IconPhone size={42} />}
-                  url={"Tel:+393922758741"}
-                  sitename={"Cellulare"}
-                  color={"#f8ac1f"}
-                />
-                <SocialPlate
-                  placeHolder={"Matteo Bianchi"}
-                  Icon={<IconBrandLinkedin size={42} />}
-                  url={"https://www.linkedin.com/in/matteo-bianchi-701b76263/"}
-                  sitename={"LinkedIn"}
-                  color={"#086ff5"}
-                />
-                <SocialPlate
-                  placeHolder={"McMatthew"}
-                  Icon={<IconBrandGithub size={42} />}
-                  url={"https://github.com/McMatthew"}
-                  sitename={"GitHub"}
-                  color={"#9036f1"}
-                />
+                {contacts.map((props) => (
+                  <SocialPlate key={props.siteName} {...props} />
+                ))}
               </Stack>
+              <Title className={`${styles.contact_neon} ${neon.className}`}>
+                Get in touch!
+              </Title>
             </Flex>
           </Paper>
         </GridCol>
