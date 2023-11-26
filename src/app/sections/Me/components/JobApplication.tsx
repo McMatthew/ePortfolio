@@ -9,6 +9,27 @@ import { badgeMark, lightFont } from "@/app/fonts";
 import Link from "next/link";
 
 export const JobApplication = () => {
+  const downloadFile = async (file: string) => {
+    try {
+      const response = await fetch(file, {
+        headers: {
+          "Content-Type": "application/pdf",
+        },
+      });
+
+      const blob = await response.blob();
+      const url = window.URL.createObjectURL(blob);
+
+      const a = document.createElement("a");
+      a.href = url;
+      a.download = "nomeFile.pdf";
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+    } catch (error) {
+      console.error("Errore durante il download del file:", error);
+    }
+  };
   return (
     <Box className={styles.application}>
       <Group ml={"1rem"} gap={4}>
@@ -43,16 +64,15 @@ export const JobApplication = () => {
               Un personale riepilogo, molto sintetico, di quali strumenti
               conosco e le esperienze fatte fino ad oggi
             </Text>
-            <Link passHref href={"/cvMatteo.pdf"} />
-            <a download>
-              <Button
-                className={styles.cardButton}
-                radius={"3rem"}
-                variant={"outline"}
-              >
-                Scarica
-              </Button>
-            </a>
+            <Link download href={"/cvMatteo.pdf"} />
+            <Button
+              className={styles.cardButton}
+              radius={"3rem"}
+              variant={"outline"}
+              onClick={() => downloadFile("/cvMatteo.pdf")}
+            >
+              Scarica
+            </Button>
           </Box>
         </Paper>
         <Paper miw={700} className={styles.card}>
@@ -76,17 +96,15 @@ export const JobApplication = () => {
               Perciò ho scritto questa lettera per motivare un possibile datore
               di lavoro ad assumermi
             </Text>
-            <Link download href={"/Lettera_presentazione.pdf"} />
-            <a download>
-              <Button
-                color={"teal"}
-                className={styles.cardButton}
-                radius={"3rem"}
-                variant={"outline"}
-              >
-                Scarica
-              </Button>
-            </a>
+            <Button
+              color={"teal"}
+              className={styles.cardButton}
+              radius={"3rem"}
+              variant={"outline"}
+              onClick={() => downloadFile("/Lettera_presentazione.pdf")}
+            >
+              Scarica
+            </Button>
           </Box>
         </Paper>
       </Flex>
