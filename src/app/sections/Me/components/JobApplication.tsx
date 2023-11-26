@@ -70,7 +70,7 @@ export const JobApplication = () => {
               className={styles.cardButton}
               radius={"3rem"}
               variant={"outline"}
-              onClick={() => downloadFile("/cvMatteo.pdf")}
+              onClick={() => downloadFile("/ePortfolio/cvMatteo.pdf")}
             >
               Scarica
             </Button>
@@ -102,7 +102,9 @@ export const JobApplication = () => {
               className={styles.cardButton}
               radius={"3rem"}
               variant={"outline"}
-              onClick={() => downloadFile("/Lettera_presentazione.pdf")}
+              onClick={() =>
+                downloadFile("/ePortfolio/Lettera_presentazione.pdf")
+              }
             >
               Scarica
             </Button>
