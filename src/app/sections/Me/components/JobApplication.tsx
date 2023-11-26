@@ -1,3 +1,4 @@
+"use client";
 import { Box, Button, Flex, Group, Paper, Text, Title } from "@mantine/core";
 import styles from "@/app/sections/Me/meSection.module.css";
 import {
@@ -22,7 +23,7 @@ export const JobApplication = () => {
 
       const a = document.createElement("a");
       a.href = url;
-      a.download = "nomeFile.pdf";
+      a.download = "matteo_bianchi.pdf";
       document.body.appendChild(a);
       a.click();
       document.body.removeChild(a);
