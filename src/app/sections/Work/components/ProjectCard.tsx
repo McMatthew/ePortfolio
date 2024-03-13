@@ -14,7 +14,7 @@ const ProjectCard = ({
 }: Project & { containerRef: MutableRefObject<HTMLDivElement | null> }) => {
   const { ref, entry } = useIntersection({
     root: containerRef.current,
-    threshold: 1,
+    threshold: 0.5,
   });
 
   return (
