@@ -8,36 +8,13 @@ import {
   Space,
   Stack,
   Text,
+  Tooltip,
 } from "@mantine/core";
 import styles from "./workSection.module.css";
 import commonStyles from "../common.module.css";
 import { badgeMark } from "../../fonts";
 import { useRef } from "react";
 import Image from "next/image";
-import bun from "../../../img/languages/bun.png";
-import c from "../../../img/languages/c.png";
-import js from "../../../img/languages/js.png";
-import html from "../../../img/languages/html.png";
-import css from "../../../img/languages/css.png";
-import node from "../../../img/languages/node.png";
-import vite from "../../../img/languages/vite.png";
-import next from "../../../img/languages/next.png";
-import cra from "../../../img/languages/cra.svg";
-import redux from "../../../img/languages/redux.svg";
-import react from "../../../img/languages/react.png";
-import parcel from "../../../img/languages/parcel.png";
-import php from "../../../img/languages/php.png";
-import jquery from "../../../img/languages/jquery.png";
-import git from "../../../img/languages/git.png";
-import gitlab from "../../../img/languages/gitlab.svg";
-import kotlin from "../../../img/languages/kotlin.png";
-import kube from "../../../img/languages/kube.png";
-import quarkus from "../../../img/languages/quarkus.png";
-import npm from "../../../img/languages/npm.png";
-import yarn from "../../../img/languages/yarn.png";
-import sql from "../../../img/languages/sql.png";
-import fire from "../../../img/languages/firebase.png";
-import aws from "../../../img/languages/aws.jpg";
 import ProjectCard from "./components/ProjectCard";
 import { Projects } from "@/app/configs/projects";
 import Drawer from "../../components/Drawer/Drawer";
@@ -45,6 +22,7 @@ import { IconTelescope, IconTool } from "@tabler/icons-react";
 import { useNavigation } from "@/app/context/navigationContext";
 import { Roadmap } from "@/app/sections/Work/components/roadmap";
 import { useMediaQuery } from "@mantine/hooks";
+import { KNOWN_TOOLS } from "@/app/configs/const";
 
 const WorkSection = () => {
   const { setLocation } = useNavigation();
@@ -80,30 +58,17 @@ const WorkSection = () => {
               className={styles.logos}
               cols={isMobile ? 4 : 8}
             >
-              <Image alt="bun" src={bun} />
-              <Image alt="vite" src={vite} />
-              <Image alt="next" src={next} />
-              <Image alt="cra" src={cra} />
-              <Image alt="parcel" src={parcel} />
-              <Image alt="react" src={react} />
-              <Image alt="redux" src={redux} />
-              <Image alt="html" src={html} />
-              <Image alt="js" src={js} />
-              <Image alt="php" src={php} />
-              <Image alt="jquery" src={jquery} />
-              <Image alt="sql" src={sql} />
-              <Image alt="css" src={css} />
-              <Image alt="c#" src={c} />
-              <Image alt="kotlin" src={kotlin} />
-              <Image alt="node js" src={node} />
-              <Image alt="kube" src={kube} />
-              <Image alt="quarkus" src={quarkus} />
-              <Image alt="git" src={git} />
-              <Image alt="gitlab" src={gitlab} />
-              <Image alt="npm" src={npm} />
-              <Image alt="yarn" src={yarn} />
-              <Image alt="fire" src={fire} />
-              <Image alt="aws" src={aws} />
+              {KNOWN_TOOLS.map(({ src, alt }) => (
+                <Tooltip
+                  openDelay={500}
+                  color={"gray.8"}
+                  withArrow
+                  key={alt}
+                  label={alt}
+                >
+                  <Image alt={alt} src={src} />
+                </Tooltip>
+              ))}
             </SimpleGrid>
           </Grid.Col>
           <Grid.Col>

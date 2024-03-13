@@ -68,14 +68,16 @@ const AboutSection = () => {
                 Beh se non si fosse ancora capito, io sono Matteo... Bianchi
                 Matteo per la precisione, un nome un bel pò comune lo so; però
                 il mio obiettivo è farmi riconoscere e se non dal nome dalla
-                qualità del mio lavoro. Mi sono diplomato nel 2022, ormai{" "}
-                {yearFromDegree} ann
+                qualità del mio lavoro. <br />
+                Mi sono diplomato nel 2022, ormai {yearFromDegree} ann
                 {yearFromDegree === 1 ? "o" : "i"} fa. Da luglio di quell'anno
                 però ho lavorato a qualche progetto frontend in React e,
-                principalmente, ad una applicazione in Cloud. Sono sempre
-                disposto a "cambiare aria", non si sa mai cosa ha in serbo il
-                futuro... Detto ciò ecco un piccolo riepilogo delle mie abilità
-                (autovalutate)
+                principalmente, ad una applicazione in Cloud.
+                <br />
+                <br />
+                Sono sempre disposto a <i>"cambiare aria"</i>, non si sa mai
+                cosa ha in serbo il futuro... Detto ciò ecco un piccolo
+                riepilogo delle mie abilità (autovalutate)
               </Text>
               <Group mt={64} justify="center">
                 <IconStar stroke={2.25} color="#ffcc00" size={40} />
