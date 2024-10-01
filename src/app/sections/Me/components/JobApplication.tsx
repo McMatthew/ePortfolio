@@ -1,5 +1,14 @@
 "use client";
-import { Box, Button, Flex, Group, Paper, Text, Title } from "@mantine/core";
+import {
+  Box,
+  Button,
+  Flex,
+  Group,
+  Paper,
+  ScrollArea,
+  Text,
+  Title,
+} from "@mantine/core";
 import styles from "@/app/sections/Me/meSection.module.css";
 import {
   IconBriefcase,
@@ -8,29 +17,10 @@ import {
 } from "@tabler/icons-react";
 import { badgeMark, lightFont } from "@/app/fonts";
 import Link from "next/link";
+import { useMediaQuery } from "@mantine/hooks";
+import { downloadFile } from "@/app/utils";
 
 export const JobApplication = () => {
-  const downloadFile = async (file: string) => {
-    try {
-      const response = await fetch(file, {
-        headers: {
-          "Content-Type": "application/pdf",
-        },
-      });
-
-      const blob = await response.blob();
-      const url = window.URL.createObjectURL(blob);
-
-      const a = document.createElement("a");
-      a.href = url;
-      a.download = "matteo_bianchi.pdf";
-      document.body.appendChild(a);
-      a.click();
-      document.body.removeChild(a);
-    } catch (error) {
-      console.error("Errore durante il download del file:", error);
-    }
-  };
   return (
     <Box className={styles.application}>
       <Group ml={"1rem"} gap={4}>

@@ -2,6 +2,9 @@
   position: relative;
   border-right: 2px solid var(--gray-100);
 }
+.timeline_mobile {
+  position: relative;
+}
 .timeline_step {
   border-left: 1px solid var(--secondary-text-color);
   height: 80px;
@@ -97,7 +100,7 @@
 .knoledge_gallery {
   text-align: left;
   height: auto;
-  margin: 2rem;
+  margin: 1rem;
 }
 .knoledge_gallery img {
   width: 40vw;
@@ -151,7 +154,7 @@
   color: white;
 }
 .knoledge_gallery .project_card .description {
-  font-size: 1rem;
+  font-size: 0.8rem;
   font-weight: 300;
   color: whitesmoke;
   opacity: 0.8;
@@ -160,6 +163,7 @@
   width: 100%;
   flex-basis: 100%;
   margin-top: 0.5rem;
+  gap: 8px
 }
 .knoledge_gallery .project_card .badge_list .badge[id="React"] {
   background-color: #2664d855;
@@ -211,12 +215,18 @@
   width: 100%;
 }
 
-@media (max-width: 430px) {
+@media (max-width: 768px) {
   .timeline {
     border-right: 0;
   }
-  .logos img {
-    width: 2rem;
-    height: auto;
+  .knoledge_gallery .project_card img {
+    width: 4rem;
+    height: 4rem;
+  }
+  .knoledge_gallery .project_card .description {
+    font-size: 12px;
+    font-weight: 300;
+    color: whitesmoke;
+    opacity: 0.8;
   }
 }

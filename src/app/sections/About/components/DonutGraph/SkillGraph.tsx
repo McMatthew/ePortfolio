@@ -2,6 +2,7 @@ import { ISkill } from "@/app/configs/skills";
 import {
   Box,
   Center,
+  Flex,
   Group,
   Paper,
   rem,
@@ -24,8 +25,14 @@ export function StatsRing({
   const stats = data.map((stat) => {
     const { icon: Icon } = stat;
     return (
-      <Paper withBorder radius="md" p="xs" key={stat.label}>
-        <Group>
+      <Paper
+        style={{ flexGrow: 1 }}
+        withBorder
+        radius="md"
+        p={6}
+        key={stat.label}
+      >
+        <Group gap={0}>
           <RingProgress
             size={80}
             roundCaps
@@ -41,7 +48,6 @@ export function StatsRing({
               </Center>
             }
           />
-
           <div>
             <Text c="dimmed" size="sm" tt="uppercase" fw={700}>
               {stat.label}
@@ -56,12 +62,14 @@ export function StatsRing({
   });
 
   return (
-    <Box bg={"gray.0"} h={"100%"} p={24} className={styles.skills_paper}>
+    <Box bg={"gray.0"} h={"100%"} p={12} className={styles.skills_paper}>
       <Title mb={"0.25rem"}>{title}</Title>
       <Text mb={"1.25rem"} size={"1.25rem"} c={"gray.7"}>
         {descr}
       </Text>
-      <SimpleGrid cols={{ base: 1, sm: 2 }}>{stats}</SimpleGrid>
+      <Flex gap={8} wrap={"wrap"}>
+        {stats}
+      </Flex>
     </Box>
   );
 }

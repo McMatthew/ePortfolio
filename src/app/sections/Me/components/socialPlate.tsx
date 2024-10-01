@@ -9,12 +9,14 @@ export const SocialPlate = ({
   icon,
   siteName,
   color,
+  mini,
 }: {
   icon: React.ReactElement;
   placeHolder: string;
   url: string;
   siteName: string;
   color: string;
+  mini?: boolean;
 }) => {
   return (
     <Link target={"_blank"} href={url}>
@@ -23,11 +25,16 @@ export const SocialPlate = ({
         className={styles.contact}
         pos={"relative"}
       >
-        <Box className={styles.contact_plate} pos={"absolute"}>
+        <Box
+          className={mini ? styles.contact_plate_mini : styles.contact_plate}
+          pos={"absolute"}
+        >
           {placeHolder}
         </Box>
-        <span className={styles.contact_icon}>{icon}</span>
-        <Text size={"1.5rem"}>{siteName}</Text>
+        <span className={mini ? styles.contact_icon_mini : styles.contact_icon}>
+          {icon}
+        </span>
+        <Text size={mini ? "1rem" : "1.5rem"}>{siteName}</Text>
       </Group>
     </Link>
   );

@@ -8,6 +8,11 @@
 .profile_picture {
   display: block;
   margin: 0 auto;
+  max-width: 400px;
+  min-width: 100px;
+  width: 100%;
+  height: auto;
+  flex-shrink: 0;
 }
 .profile_generality {
   width: 30rem;

@@ -61,7 +61,7 @@ export const skill_resume = [
         icon: IconPhone,
       },
       {
-        label: "Best practise",
+        label: "best practice",
         stats: "100%",
         progress: 100,
         color: "#ff52ae",

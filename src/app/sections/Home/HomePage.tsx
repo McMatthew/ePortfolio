@@ -22,44 +22,9 @@ const HomePage = () => {
     rootMargin: "0px",
   });
   const { setLocation } = useNavigation();
-  const matches = useMediaQuery("(min-width: 850px)");
 
   return (
     <>
-      <Transition mounted={matches === false}>
-        {(theme) => (
-          <Overlay
-            display={"grid"}
-            style={{ placeItems: "center", ...theme }}
-            blur={15}
-            zIndex={1000}
-            pos={"relative"}
-          >
-            <video
-              style={{ width: "100%", height: "100vh", objectFit: "cover" }}
-              autoPlay
-              muted
-              loop
-              id="myVideo"
-            >
-              <source src={"/galaxy.mp4"} type="video/mp4" />
-            </video>
-
-            <Box top={"40%"} pos={"absolute"}>
-              <Title
-                style={{ textShadow: "0px 0px 6px #333333" }}
-                c={"white"}
-                tt={"uppercase"}
-                ta={"center"}
-              >
-                Responsive design
-                <br />
-                coming soon...
-              </Title>
-            </Box>
-          </Overlay>
-        )}
-      </Transition>
       <Navbar />
       <Box className={styles.title}>
         <Title ref={ref} fz={64} className={title.className} tt={"uppercase"}>

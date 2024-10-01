@@ -5,7 +5,9 @@ import {
   Box,
   Divider,
   Flex,
+  Grid,
   Group,
+  SimpleGrid,
   Slider,
   Stack,
   Text,
@@ -21,9 +23,11 @@ import { StatsRing } from "./components/DonutGraph/SkillGraph";
 import arrow from "../../../img/arrow.png";
 import { useEffect, useState } from "react";
 import { useNavigation } from "@/app/context/navigationContext";
+import { useMediaQuery } from "@mantine/hooks";
 
 const AboutSection = () => {
   const [vibrationCount, setVibrationCount] = useState<number>(0);
+  const isMobile = useMediaQuery("(max-width: 992px)");
   const { setLocation } = useNavigation();
   const yearFromDegree = new Date().getFullYear() - 2022;
   const vibrationStyle = {
@@ -32,8 +36,8 @@ const AboutSection = () => {
 
   useEffect(() => {
     if (vibrationCount === 100) {
-      setLocation("me...");
       setVibrationCount(0);
+      setLocation("me...");
     }
   }, [vibrationCount]);
 
@@ -61,10 +65,12 @@ const AboutSection = () => {
           >
             <IconUserQuestion /> Chi sono?
           </Box>
-          <Flex mb={"0.5rem"}>
-            <Image alt={"arrow"} src={arrow} />
+          <Flex align={"flex-end"} mb={"0.5rem"}>
+            {!isMobile && (
+              <Image className={styles.image_arrow} alt={"arrow"} src={arrow} />
+            )}
             <Stack>
-              <Text ta={"justify"} lh="2rem" size="1.5rem">
+              <Box ta={"justify"} lh="2rem" fz={"clamp(1em, 2vw, 2em)"}>
                 Beh se non si fosse ancora capito, io sono Matteo... Bianchi
                 Matteo per la precisione, un nome un bel pò comune lo so; però
                 il mio obiettivo è farmi riconoscere e se non dal nome dalla
@@ -78,7 +84,7 @@ const AboutSection = () => {
                 Sono sempre disposto a <i>"cambiare aria"</i>, non si sa mai
                 cosa ha in serbo il futuro... Detto ciò ecco un piccolo
                 riepilogo delle mie abilità (autovalutate)
-              </Text>
+              </Box>
               <Group mt={64} justify="center">
                 <IconStar stroke={2.25} color="#ffcc00" size={40} />
                 <IconStar color="#ffcc00" size={48} />
@@ -89,30 +95,46 @@ const AboutSection = () => {
                   “Non domandarti mai dove vai, solo fallo bene.”
                 </Title>
                 <Text mr={50} c={"gray.6"} ta={"right"}>
-                  {" "}
                   - Chandra Livia Candiani
                 </Text>
               </Stack>
             </Stack>
           </Flex>
-          <Flex mb={"1rem"} gap={"4rem"}>
-            <Image
-              src={me}
-              className={styles.profile_picture}
-              alt="Matteo Bianchi"
-            />
-            <Divider orientation="vertical" />
-            <Flex style={{ flexGrow: 1, alignItems: "flex-start" }} gap={12}>
-              {skill_resume.map((resume) => (
-                <StatsRing
-                  key={resume.title}
-                  data={resume.skills}
-                  title={resume.title}
-                  descr={resume.description}
-                />
-              ))}
-            </Flex>
-          </Flex>
+          <Grid mb={"1rem"} gutter={isMobile ? 16 : 0}>
+            <Grid.Col span={isMobile ? "auto" : "content"}>
+              <Image
+                src={me}
+                className={styles.profile_picture}
+                alt="Matteo Bianchi"
+              />
+            </Grid.Col>
+            {!isMobile && (
+              <Grid.Col span={"content"}>
+                <Divider mx={32} h={"100%"} orientation="vertical" />
+              </Grid.Col>
+            )}
+            <Grid.Col
+              display={"grid"}
+              style={{ placeItems: "center" }}
+              span={"auto"}
+            >
+              <Flex
+                wrap={"wrap"}
+                style={{ flexGrow: 1, alignItems: "flex-start" }}
+                gap={12}
+                w={"100%"}
+              >
+                {skill_resume.map((resume) => (
+                  <StatsRing
+                    key={resume.title}
+                    data={resume.skills}
+                    title={resume.title}
+                    descr={resume.description}
+                  />
+                ))}
+              </Flex>
+            </Grid.Col>
+          </Grid>
         </Box>
         <Flex
           style={{ zIndex: 1001, position: "relative" }}
@@ -130,7 +152,9 @@ const AboutSection = () => {
             color="gray.8"
             radius={12}
             size={30}
-            w={600}
+            w={"100%"}
+            miw={100}
+            maw={600}
           />
         </Flex>
       </Box>

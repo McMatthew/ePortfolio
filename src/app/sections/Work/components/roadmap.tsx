@@ -1,4 +1,4 @@
-import { Box, Grid, Group, Stack } from "@mantine/core";
+import { Box, Grid, Group, SimpleGrid, Stack } from "@mantine/core";
 import commonStyles from "@/app/sections/common.module.css";
 import { badgeMark } from "@/app/fonts";
 import { IconRadar2 } from "@tabler/icons-react";
@@ -17,7 +17,7 @@ function setDotPosition(timelineStepIndex: number) {
 
 export function Roadmap() {
   const [stepIndex, setStepIndex] = useState(2);
-  const isMobile = useMediaQuery("(max-width: 430px)");
+  const isMobile = useMediaQuery("(max-width: 768px)");
 
   const lifeStep = [
     { label: "Tirocinio - Hardware Upgrade", isPast: true, Date: "1/6/2021" },
@@ -27,62 +27,70 @@ export function Roadmap() {
 
   return (
     <>
-      <Grid.Col>
+      <Box
+        fz={"2rem"}
+        className={`${commonStyles.title} ${badgeMark.className}`}
+      >
+        <IconRadar2 /> La mia roadmap
+      </Box>
+      <SimpleGrid mt={8} spacing={30} mx={20} cols={{ sm: 2 }}>
         <Box
-          fz={"2rem"}
-          className={`${commonStyles.title} ${badgeMark.className}`}
+          style={{
+            justifySelf: isMobile ? "center" : "flex-end",
+            flexGrow: 1,
+          }}
+          ta={"left"}
         >
-          <IconRadar2 /> La mia roadmap
+          <Stack
+            pr={60}
+            gap={0}
+            className={isMobile ? styles.timeline_mobile : styles.timeline}
+          >
+            {lifeStep.map((step, index) => (
+              <Box
+                key={step.label}
+                pl={16}
+                onClick={() => setStepIndex(index)}
+                className={
+                  step.isPast
+                    ? styles.timeline_step_dashed
+                    : styles.timeline_step
+                }
+              >
+                {!step.isPast && (
+                  <Box
+                    top={setDotPosition(stepIndex)}
+                    className={styles.timeline_step_dot}
+                  />
+                )}
+                <Box className={styles.timeline_step_date}>{step.Date}</Box>
+                {step.label}
+              </Box>
+            ))}
+          </Stack>
         </Box>
-      </Grid.Col>
-      <Grid.Col ta={"left"} span={isMobile ? 12 : 4}>
-        <Stack gap={0} className={styles.timeline}>
-          {lifeStep.map((step, index) => (
-            <Box
-              key={step.label}
-              pl={16}
-              onClick={() => setStepIndex(index)}
-              className={
-                step.isPast ? styles.timeline_step_dashed : styles.timeline_step
-              }
-            >
-              {!step.isPast && (
-                <Box
-                  top={setDotPosition(stepIndex)}
-                  className={styles.timeline_step_dot}
-                />
-              )}
-              <Box className={styles.timeline_step_date}>{step.Date}</Box>
-              {step.label}
-            </Box>
-          ))}
-        </Stack>
-      </Grid.Col>
-      <Grid.Col ta="justify" span={isMobile ? 12 : 4}>
-        <Box>{descriptions[stepIndex]}</Box>
-      </Grid.Col>
-      <Grid.Col>
-        <Group mt={12} gap={"1rem"} justify="center">
-          <Image
-            data-highlight={stepIndex === 0}
-            className={styles.logo}
-            src={hwu}
-            alt="Logo Hardware Upgrade"
-          />
-          <Image
-            data-highlight={stepIndex === 1}
-            className={styles.logo}
-            src={isis}
-            alt="Logo isis Luino"
-          />
-          <Image
-            data-highlight={stepIndex === 2}
-            className={styles.logo}
-            src={sgc}
-            alt="Logo Sida autosoft multimedia srl"
-          />
-        </Group>
-      </Grid.Col>
+        <Box ta={"left"}>{descriptions[stepIndex]}</Box>
+      </SimpleGrid>
+      <Group my={24} gap={"1rem"} justify="center">
+        <Image
+          data-highlight={stepIndex === 0}
+          className={styles.logo}
+          src={hwu}
+          alt="Logo Hardware Upgrade"
+        />
+        <Image
+          data-highlight={stepIndex === 1}
+          className={styles.logo}
+          src={isis}
+          alt="Logo isis Luino"
+        />
+        <Image
+          data-highlight={stepIndex === 2}
+          className={styles.logo}
+          src={sgc}
+          alt="Logo Sida autosoft multimedia srl"
+        />
+      </Group>
     </>
   );
 }

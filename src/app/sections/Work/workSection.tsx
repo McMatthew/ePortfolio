@@ -2,7 +2,6 @@
 import {
   Box,
   Button,
-  Grid,
   ScrollArea,
   SimpleGrid,
   Space,
@@ -27,7 +26,7 @@ import { KNOWN_TOOLS } from "@/app/configs/const";
 const WorkSection = () => {
   const { setLocation } = useNavigation();
   const containerRef = useRef<HTMLDivElement>(null);
-  const isMobile = useMediaQuery("(max-width: 430px)");
+  const isMobile = useMediaQuery("(max-width: 768px)");
 
   return (
     <Drawer
@@ -39,42 +38,34 @@ const WorkSection = () => {
       navigationTrigger={"experience"}
     >
       <Box className={commonStyles.section}>
-        <Grid mih={"13rem"} justify="center" p={12}>
-          <Roadmap />
-          <Grid.Col>
-            <Space h={"4rem"} />
-          </Grid.Col>
-          <Grid.Col>
-            <Box
-              fz={"2rem"}
-              className={`${commonStyles.title} ${badgeMark.className}`}
+        <Roadmap />
+        <Box
+          fz={"2rem"}
+          className={`${commonStyles.title} ${badgeMark.className}`}
+        >
+          <IconTool /> Tool e Linguaggi
+        </Box>
+        <SimpleGrid
+          mt={8}
+          ml={22}
+          className={styles.logos}
+          cols={{ base: 4, sm: 4, md: 8 }}
+        >
+          {KNOWN_TOOLS.map(({ src, alt }) => (
+            <Tooltip
+              openDelay={500}
+              color={"gray.8"}
+              withArrow
+              key={alt}
+              label={alt}
             >
-              <IconTool /> Tool e Linguaggi
-            </Box>
-          </Grid.Col>
-          <Grid.Col>
-            <SimpleGrid
-              ml={22}
-              className={styles.logos}
-              cols={isMobile ? 4 : 8}
-            >
-              {KNOWN_TOOLS.map(({ src, alt }) => (
-                <Tooltip
-                  openDelay={500}
-                  color={"gray.8"}
-                  withArrow
-                  key={alt}
-                  label={alt}
-                >
-                  <Image alt={alt} src={src} />
-                </Tooltip>
-              ))}
-            </SimpleGrid>
-          </Grid.Col>
-          <Grid.Col>
-            <Space h={"4rem"} />
-          </Grid.Col>
-          <Grid.Col ta={"left"} span={isMobile ? 12 : 6}>
+              <Image alt={alt} src={src} />
+            </Tooltip>
+          ))}
+        </SimpleGrid>
+        <Space h={"4rem"} />
+        <SimpleGrid spacing={0} cols={{ base: 1, md: 2 }}>
+          <Box>
             <Box
               m={"0 auto"}
               w={isMobile ? "auto" : "60%"}
@@ -96,27 +87,22 @@ const WorkSection = () => {
                 <IconTelescope /> Continua l'esplorazione
               </Button>
             </Box>
-          </Grid.Col>
-          <Grid.Col span={isMobile ? 12 : 6}>
-            <ScrollArea
-              className={styles.scroll_projects}
-              classNames={{ thumb: styles.scroll_projects_thumb }}
-              offsetScrollbars
-              h={"20rem"}
-              ref={containerRef}
-            >
-              <Stack gap={"3rem"} className={styles.knoledge_gallery}>
-                {Projects.map((p) => (
-                  <ProjectCard
-                    containerRef={containerRef}
-                    key={p.title}
-                    {...p}
-                  />
-                ))}
-              </Stack>
-            </ScrollArea>
-          </Grid.Col>
-        </Grid>
+          </Box>
+
+          <ScrollArea
+            className={styles.scroll_projects}
+            classNames={{ thumb: styles.scroll_projects_thumb }}
+            offsetScrollbars
+            h={"20rem"}
+            ref={containerRef}
+          >
+            <Stack gap={"3rem"} className={styles.knoledge_gallery}>
+              {Projects.map((p) => (
+                <ProjectCard containerRef={containerRef} key={p.title} {...p} />
+              ))}
+            </Stack>
+          </ScrollArea>
+        </SimpleGrid>
       </Box>
     </Drawer>
   );
