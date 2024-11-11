@@ -11,7 +11,7 @@ import {
 } from "@mantine/core";
 import styles from "./workSection.module.css";
 import commonStyles from "../common.module.css";
-import { badgeMark } from "../../fonts";
+import { badgeMark } from "../../../fonts/fonts";
 import { useRef } from "react";
 import Image from "next/image";
 import ProjectCard from "./components/ProjectCard";
@@ -22,6 +22,7 @@ import { useNavigation } from "@/app/context/navigationContext";
 import { Roadmap } from "@/app/sections/Work/components/roadmap";
 import { useMediaQuery } from "@mantine/hooks";
 import { KNOWN_TOOLS } from "@/app/configs/const";
+import { TABS_TITLES } from "@/app/components/Navbar/navbar";
 
 const WorkSection = () => {
   const { setLocation } = useNavigation();
@@ -35,7 +36,7 @@ const WorkSection = () => {
           <span className={commonStyles.capital}>E</span>xperience
         </Text>
       }
-      navigationTrigger={"experience"}
+      navigationTrigger={TABS_TITLES.WORK}
     >
       <Box className={commonStyles.section}>
         <Roadmap />
@@ -81,7 +82,7 @@ const WorkSection = () => {
             <Box m={"0 auto"} w={isMobile ? "auto" : "60%"}>
               <Button
                 size={"lg"}
-                onClick={() => setLocation("about")}
+                onClick={() => setLocation(TABS_TITLES.ABOUT)}
                 className={styles.goto_about}
               >
                 <IconTelescope /> Continua l'esplorazione

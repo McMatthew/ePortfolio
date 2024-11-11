@@ -15,7 +15,7 @@ import {
   IconFileFilled,
   IconMailOpenedFilled,
 } from "@tabler/icons-react";
-import { badgeMark, lightFont } from "@/app/fonts";
+import { badgeMark, lightFont } from "@/fonts/fonts";
 import Link from "next/link";
 import { useMediaQuery } from "@mantine/hooks";
 import { downloadFile } from "@/app/utils";
@@ -24,8 +24,8 @@ export const JobApplication = () => {
   return (
     <Box className={styles.application}>
       <Group ml={"1rem"} gap={4}>
-        <IconBriefcase color={"white"} size={36} />
-        <Title c={"white"} fw={500} className={badgeMark.className}>
+        <IconBriefcase size={36} />
+        <Title fw={500} className={badgeMark.className}>
           Documenti per candidature
         </Title>
       </Group>
@@ -39,7 +39,7 @@ export const JobApplication = () => {
         <Paper className={styles.card}>
           <Box className={styles.cardImage_cv} />
           <Box pos={"relative"} style={{ flexGrow: 1 }} p={"0.75rem"}>
-            <Group c={"gray.2"} gap={2}>
+            <Group gap={2}>
               <IconFileFilled />
               <Title order={1} fw={500}>
                 Curriculum vitae
@@ -49,7 +49,6 @@ export const JobApplication = () => {
               pl={24}
               className={lightFont.className}
               fw={300}
-              c={"gray.3"}
               size={"1.2rem"}
             >
               Un personale riepilogo, molto sintetico, di quali strumenti
@@ -69,7 +68,7 @@ export const JobApplication = () => {
         <Paper miw={700} className={styles.card}>
           <Box className={styles.cardImage_lp} />
           <Box pos={"relative"} style={{ flexGrow: 1 }} p={"0.75rem"}>
-            <Group align={"center"} c={"gray.2"} gap={2}>
+            <Group align={"center"} gap={2}>
               <IconMailOpenedFilled />
               <Title lh={"normal"} order={1} fw={500}>
                 Lettera di presentazione
@@ -79,7 +78,6 @@ export const JobApplication = () => {
               pl={24}
               className={lightFont.className}
               fw={300}
-              c={"gray.3"}
               size={"1.2rem"}
             >
               Presentarsi bene è il primo passo verso una buona impressione.{" "}

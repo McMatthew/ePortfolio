@@ -1,3 +1,4 @@
+import localFont from "next/font/local";
 import { Outfit, Poiret_One, Sacramento } from "next/font/google";
 
 export const title = Poiret_One({ weight: "400", subsets: ["latin"] });

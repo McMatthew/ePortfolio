@@ -1,6 +1,6 @@
 import { Box, Grid, Group, SimpleGrid, Stack } from "@mantine/core";
 import commonStyles from "@/app/sections/common.module.css";
-import { badgeMark } from "@/app/fonts";
+import { badgeMark } from "@/fonts/fonts";
 import { IconRadar2 } from "@tabler/icons-react";
 import styles from "@/app/sections/Work/workSection.module.css";
 import descriptions from "@/app/sections/Work/lifePeriodDesc";
@@ -73,12 +73,14 @@ export function Roadmap() {
       </SimpleGrid>
       <Group my={24} gap={"1rem"} justify="center">
         <Image
+          style={{ borderRadius: "100vw" }}
           data-highlight={stepIndex === 0}
           className={styles.logo}
           src={hwu}
           alt="Logo Hardware Upgrade"
         />
         <Image
+          style={{ borderRadius: "100vw" }}
           data-highlight={stepIndex === 1}
           className={styles.logo}
           src={isis}

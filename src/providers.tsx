@@ -6,6 +6,8 @@ import page_styles from "./app/page.module.css";
 
 export const Providers: React.FC<{ children: ReactNode }> = ({ children }) => {
   const theme = createTheme({
+    white: "#efeceb",
+    black: "#232325",
     components: {
       Divider: Divider.extend({
         classNames: {
@@ -14,5 +16,9 @@ export const Providers: React.FC<{ children: ReactNode }> = ({ children }) => {
       }),
     },
   });
-  return <MantineProvider theme={theme}>{children}</MantineProvider>;
+  return (
+    <MantineProvider forceColorScheme={"light"} theme={theme}>
+      {children}
+    </MantineProvider>
+  );
 };

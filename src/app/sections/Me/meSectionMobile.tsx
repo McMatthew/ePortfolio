@@ -15,7 +15,7 @@ import {
   IconFileFilled,
   IconMailOpenedFilled,
 } from "@tabler/icons-react";
-import { badgeMark, lightFont, neon } from "@/app/fonts";
+import { badgeMark, lightFont, neon } from "@/fonts/fonts";
 import Link from "next/link";
 import { downloadFile } from "@/app/utils";
 import { contacts } from "@/app/configs/contacts";

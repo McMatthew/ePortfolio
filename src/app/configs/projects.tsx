@@ -29,11 +29,11 @@ export const Projects: Project[] = [
     title: "Cloud Web App",
     description: (
       <>
-        Una potente app cloud per la gestione della autoscuola,
-        dagliappuntamenti coi candidati alla contabilità.
+        Una potente app cloud per la gestione della autoscuola, dagli
+        appuntamenti coi candidati alla contabilità.
         <br />
-        La architettura Kubernetes, il client React, il backend Kotline le
-        interfacce REST gli permettono di sfruttare le miglioriottimizzazione e
+        La architettura Kubernetes, il client React, il backend Kotlin e le
+        interfacce REST gli permettono di sfruttare le migliori ottimizzazione e
         le più moderne tecnologie per svolgere molto efficaciemente ogni
         operazione
       </>
@@ -57,6 +57,20 @@ export const Projects: Project[] = [
         <br />
         Creata utilizzando un frontend React con NextJS e Redux per le REST
         Apis.
+      </>
+    ),
+    img: sgc,
+    badgeList: [BADGE_LABELS.React, BADGE_LABELS.Redux, BADGE_LABELS.Next],
+  },
+  {
+    title: "Controllo simulatore",
+    description: (
+      <>
+        Un'interfaccia in Electron capace di comunicare con un simulatore di
+        guida per stipulare un "report" sul candidato. <br />
+        L'app ha lo scopo di creare un report per il medico che valuta il
+        candidato che esegue la prova, se è idoneo alla guida pur avendo
+        disabilità.
       </>
     ),
     img: sgc,
