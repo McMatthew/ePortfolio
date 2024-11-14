@@ -1,9 +1,9 @@
-import { Box } from "@mantine/core";
+import { Box, MantineStyleProp } from "@mantine/core";
 import styles from "./ReactImage.module.css";
 
-const ReactImage = () => {
+const ReactImage = ({ style }: { style: MantineStyleProp }) => {
   return (
-    <Box className={styles.container}>
+    <Box style={style} className={styles.container}>
       <Box className={styles.night} mx={12}>
         <Box className={styles.star} />
         <Box className={styles.star} />

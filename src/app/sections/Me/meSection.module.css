@@ -1,7 +1,7 @@
 .contacts {
     padding: 1.2rem 1rem;
     border-radius: 1rem;
-    background-color: white;
+    background-color: var(--mantine-color-dark-8);
 }
 .link {
     text-decoration: underline;
@@ -19,16 +19,16 @@
     min-height: 100%;
     border-radius: 1.2rem;
     padding: 1.25rem 0;
-    background-color: white;
-    color: var(--mantine-color-black);
 }
 .card{
-    min-width: 500px;
-    min-height: 500px;
+    color: white;
+    min-width: 100px;
+    min-height: 100px;
+    max-width: 500px;
     position: relative;
-    border-radius: 2rem;
+    border-radius: 1rem;
     overflow: hidden;
-    background: var(--mantine-color-white);
+    background: var(--mantine-color-dark-8);
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
     backdrop-filter: blur(7.6px);
     -webkit-backdrop-filter: blur(7.6px);
@@ -42,24 +42,18 @@
     box-shadow: 0 10px 27px 0 rgba(125, 197, 218, 0.17);
 }
 .cardImage_cv{
+    aspect-ratio: 16/8;
     width: 100%;
-    min-height: 325px;
+    min-height: 90px;
     background-image: url("../../../img/cv.png");
     background-position: center;
     background-size: cover;
 }
 .cardImage_lp{
-    width: 100%;
-    min-height: 325px;
+    aspect-ratio: 16/8;
     background-image: url("../../../img/handshake.jpg");
     background-size: cover;
     background-position: center;
-    background-attachment: fixed;
-}
-.cardButton{
-    position: absolute;
-    bottom: 10px;
-    right: 10px;
 }
 .carousel {
     overflow-x: auto;
@@ -96,21 +90,6 @@
 .contact p {
     filter: blur(0);
     transition: 0.25s;
-}
-.contact:hover .contact_plate{
-    transform: none;
-    opacity: 1;
-}
-.contact:hover p{
-    filter: blur(8px);
-}
-.contact_neon {
-    display: grid;
-    place-content: center;
-    text-align: center;
-    font-size: 5rem;
-    flex-grow: 1;
-    animation: flicker 1.5s infinite alternate;
 }
 
 @keyframes slide-up {

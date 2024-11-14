@@ -1,10 +1,10 @@
 .section {
   width: 100%;
   text-align: center;
-  color: var(--primary-text-color);
+  color: white;
   z-index: 2;
-  border-top-right-radius: 2rem;
-  border-top-left-radius: 2rem;
+  background: rgb(35,38,42);
+  background: linear-gradient(360deg, rgba(35,38,42,1) 0%, rgba(0,0,0,0) 100%);
 }
 
 .title {

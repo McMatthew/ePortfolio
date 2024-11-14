@@ -2,7 +2,7 @@ import { Badge, Box, Flex, Group } from "@mantine/core";
 import Image from "next/image";
 import styles from "../workSection.module.css";
 import { Project } from "@/app/configs/projects";
-import { useIntersection, useMediaQuery } from "@mantine/hooks";
+import { useIntersection } from "@mantine/hooks";
 import { MutableRefObject } from "react";
 
 const ProjectCard = ({

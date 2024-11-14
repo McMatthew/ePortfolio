@@ -1,19 +1,16 @@
 "use client";
-import { Box, Button, Divider, Title } from "@mantine/core";
+import { Box, Divider, Title, Transition } from "@mantine/core";
 import styles from "./HomePage.module.css";
-import Navbar, { TABS_TITLES } from "../../components/Navbar/navbar";
+import Navbar from "../../components/Navbar/navbar";
 import { title } from "@/fonts/fonts";
 import ReactImage from "@/app/components/ReactImage";
-import { IconRocket } from "@tabler/icons-react";
 import { useIntersectionObserver } from "@uidotdev/usehooks";
-import { useNavigation } from "@/app/context/navigationContext";
 
 const HomePage = () => {
   const [ref, entry] = useIntersectionObserver<HTMLDivElement>({
     root: undefined,
     rootMargin: "0px",
   });
-  const { setLocation } = useNavigation();
 
   return (
     <>
@@ -32,13 +29,13 @@ const HomePage = () => {
           c={"white"}
         />
       </Box>
-      {entry?.isIntersecting && <ReactImage />}
-      <Button
-        onClick={() => setLocation(TABS_TITLES.WORK)}
-        className={styles.goto_next_section}
+      <Transition
+        transition={"fade"}
+        duration={700}
+        mounted={!!entry?.isIntersecting}
       >
-        <IconRocket /> Inizia spedizione
-      </Button>
+        {(styles) => <ReactImage style={styles} />}
+      </Transition>
     </>
   );
 };

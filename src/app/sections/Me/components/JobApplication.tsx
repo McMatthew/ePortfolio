@@ -5,7 +5,7 @@ import {
   Flex,
   Group,
   Paper,
-  ScrollArea,
+  Stack,
   Text,
   Title,
 } from "@mantine/core";
@@ -17,7 +17,6 @@ import {
 } from "@tabler/icons-react";
 import { badgeMark, lightFont } from "@/fonts/fonts";
 import Link from "next/link";
-import { useMediaQuery } from "@mantine/hooks";
 import { downloadFile } from "@/app/utils";
 
 export const JobApplication = () => {
@@ -25,77 +24,87 @@ export const JobApplication = () => {
     <Box className={styles.application}>
       <Group ml={"1rem"} gap={4}>
         <IconBriefcase size={36} />
-        <Title fw={500} className={badgeMark.className}>
+        <Title order={3} fw={500} className={badgeMark.className}>
           Documenti per candidature
         </Title>
       </Group>
       <Flex
         className={styles.carousel}
-        align={"center"}
         justify={"space-evenly"}
         gap={10}
         p={"1rem"}
       >
         <Paper className={styles.card}>
           <Box className={styles.cardImage_cv} />
-          <Box pos={"relative"} style={{ flexGrow: 1 }} p={"0.75rem"}>
+          <Box pos={"relative"} style={{ flexGrow: 1 }} m={"0.75rem"}>
             <Group gap={2}>
-              <IconFileFilled />
-              <Title order={1} fw={500}>
+              <IconFileFilled size={20} />
+              <Title order={5} fw={500}>
                 Curriculum vitae
               </Title>
             </Group>
-            <Text
-              pl={24}
-              className={lightFont.className}
-              fw={300}
-              size={"1.2rem"}
-            >
-              Un personale riepilogo, molto sintetico, di quali strumenti
-              conosco e le esperienze fatte fino ad oggi
-            </Text>
-            <Link download href={"/cvMatteo.pdf"} />
-            <Button
-              className={styles.cardButton}
-              radius={"3rem"}
-              variant={"outline"}
-              onClick={() => downloadFile("/ePortfolio/cvMatteo.pdf")}
-            >
-              Scarica
-            </Button>
+            <Stack h={"calc(100% - 1.50rem)"} gap={0}>
+              <Text
+                ta={"left"}
+                pl={24}
+                className={lightFont.className}
+                fw={300}
+                fz={14}
+                style={{ flexGrow: 1 }}
+              >
+                Un personale riepilogo, molto sintetico, di quali strumenti
+                conosco e le esperienze fatte fino ad oggi
+              </Text>
+              <Link download href={"/cvMatteo.pdf"} />
+              <Flex w={"100%"} justify={"flex-end"}>
+                <Button
+                  radius={"3rem"}
+                  variant={"outline"}
+                  onClick={() => downloadFile("/ePortfolio/cvMatteo.pdf")}
+                >
+                  Scarica
+                </Button>
+              </Flex>
+            </Stack>
           </Box>
         </Paper>
-        <Paper miw={700} className={styles.card}>
+        <Paper miw={100} className={styles.card}>
           <Box className={styles.cardImage_lp} />
           <Box pos={"relative"} style={{ flexGrow: 1 }} p={"0.75rem"}>
             <Group align={"center"} gap={2}>
-              <IconMailOpenedFilled />
-              <Title lh={"normal"} order={1} fw={500}>
+              <IconMailOpenedFilled size={20} />
+              <Title order={5} lh={"normal"} fw={500}>
                 Lettera di presentazione
               </Title>
             </Group>
-            <Text
-              pl={24}
-              className={lightFont.className}
-              fw={300}
-              size={"1.2rem"}
-            >
-              Presentarsi bene è il primo passo verso una buona impressione.{" "}
-              <br />
-              Perciò ho scritto questa lettera per motivare un possibile datore
-              di lavoro ad assumermi
-            </Text>
-            <Button
-              color={"teal"}
-              className={styles.cardButton}
-              radius={"3rem"}
-              variant={"outline"}
-              onClick={() =>
-                downloadFile("/ePortfolio/Lettera_presentazione.pdf")
-              }
-            >
-              Scarica
-            </Button>
+            <Stack h={"calc(100% - 1.50rem)"} gap={0}>
+              <Text
+                ta={"left"}
+                pl={24}
+                className={lightFont.className}
+                fw={300}
+                fz={14}
+                style={{ flexGrow: 1 }}
+              >
+                Presentarsi bene è il primo passo verso una buona impressione.
+                <br />
+                Perciò ho scritto questa lettera per motivare un possibile
+                datore di lavoro ad assumermi
+              </Text>
+              <Flex justify={"flex-end"}>
+                <Button
+                  color={"teal"}
+                  className={styles.cardButton}
+                  radius={"3rem"}
+                  variant={"outline"}
+                  onClick={() =>
+                    downloadFile("/ePortfolio/Lettera_presentazione.pdf")
+                  }
+                >
+                  Scarica
+                </Button>
+              </Flex>
+            </Stack>
           </Box>
         </Paper>
       </Flex>

@@ -21,14 +21,14 @@ import npm from "../../img/languages/npm.png";
 import yarn from "../../img/languages/yarn.png";
 import sql from "../../img/languages/sql.png";
 import fire from "../../img/languages/firebase.png";
-import aws from "../../img/languages/aws.jpg";
+import aws from "../../img/languages/aws.png";
 import electron from "../../img/languages/electron.svg";
 import angular from "../../img/languages/angular.png";
 import vue from "../../img/languages/vue.png";
 import figma from "../../img/languages/figma.png";
 import xd from "../../img/languages/xd.png";
 import storybook from "../../img/languages/storybook.png";
-import jetbrains from "../../img/languages/jetbrains.png";
+import jetbrains from "../../img/languages/jetbrains.svg";
 import vscode from "../../img/languages/vscode.webp";
 
 export const OPEN_TO_WORK = true;

@@ -1,4 +1,4 @@
-import { Box, Grid, Group, SimpleGrid, Stack } from "@mantine/core";
+import { Box, Group, SimpleGrid, Stack } from "@mantine/core";
 import commonStyles from "@/app/sections/common.module.css";
 import { badgeMark } from "@/fonts/fonts";
 import { IconRadar2 } from "@tabler/icons-react";
