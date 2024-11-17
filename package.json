@@ -11,15 +11,18 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@mantine/carousel": "^7.6.2",
     "@mantine/core": "^7.1.2",
     "@mantine/hooks": "^7.1.2",
     "@tabler/core": "^1.0.0-beta20",
     "@tabler/icons-react": "^2.39.0",
     "@uidotdev/usehooks": "^2.4.0",
+    "embla-carousel-react": "^7.1.0",
     "next": "latest",
     "prettier": "^3.0.3",
     "react": "latest",
     "react-dom": "latest",
+    "react-dom-confetti": "^0.2.0",
     "react-fast-marquee": "^1.6.2"
   },
   "devDependencies": {

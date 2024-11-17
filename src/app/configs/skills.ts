@@ -37,7 +37,7 @@ export const skill_resume = [
   {
     title: "Hard skills",
     description:
-      'Un riepilogo sintetico delle "skills" tecnice acquisite riguardo la programmazione e lo sviluppo',
+      'Un riepilogo sintetico delle "skills" tecniche acquisite riguardo programmazione e sviluppo',
     skills: [
       {
         label: "Testing",

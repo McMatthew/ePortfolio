@@ -1,4 +1,4 @@
-import { Badge, Box, Group } from "@mantine/core";
+import { Badge, Box, Flex, Group } from "@mantine/core";
 import Image from "next/image";
 import styles from "../workSection.module.css";
 import { Project } from "@/app/configs/projects";
@@ -11,15 +11,17 @@ const ProjectCard = ({
   title,
   img,
   containerRef,
-}: Project & { containerRef: MutableRefObject<HTMLDivElement | null> }) => {
+}: Project & {
+  containerRef: MutableRefObject<HTMLDivElement | null> | null;
+}) => {
   const { ref, entry } = useIntersection({
-    root: containerRef.current,
-    threshold: 0.5,
+    root: containerRef?.current,
+    threshold: 0.8,
   });
 
   return (
     <Box className={styles.project_card} data-visible={entry?.isIntersecting}>
-      <Group align="flex-start" wrap="nowrap">
+      <Flex direction={"row"} align={"flex-start"} wrap="nowrap">
         <Box className={styles.infos}>
           <Box ref={ref} className={styles.title}>
             {title}
@@ -27,7 +29,7 @@ const ProjectCard = ({
           <Box className={styles.description}>{description}</Box>
         </Box>
         {img && <Image src={img} alt="sida logo" />}
-      </Group>
+      </Flex>
       <Group mt={24} className={styles.badge_list}>
         {badgeList.map((badge) => (
           <Badge

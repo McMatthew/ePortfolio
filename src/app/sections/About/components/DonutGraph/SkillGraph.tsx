@@ -7,7 +7,6 @@ import {
   Paper,
   rem,
   RingProgress,
-  SimpleGrid,
   Text,
   Title,
 } from "@mantine/core";
@@ -26,6 +25,7 @@ export function StatsRing({
     const { icon: Icon } = stat;
     return (
       <Paper
+        bg={"dark.8"}
         style={{ flexGrow: 1 }}
         withBorder
         radius="md"
@@ -49,10 +49,10 @@ export function StatsRing({
             }
           />
           <div>
-            <Text c="dimmed" size="sm" tt="uppercase" fw={700}>
+            <Text c="gray.0" size="sm" tt="uppercase" fw={700}>
               {stat.label}
             </Text>
-            <Text fw={700} size="xl">
+            <Text ta={"left"} fw={700} size="xl">
               {stat.stats}
             </Text>
           </div>
@@ -62,9 +62,11 @@ export function StatsRing({
   });
 
   return (
-    <Box bg={"gray.0"} h={"100%"} p={12} className={styles.skills_paper}>
-      <Title mb={"0.25rem"}>{title}</Title>
-      <Text mb={"1.25rem"} size={"1.25rem"} c={"gray.7"}>
+    <Box bg={"gray.9"} h={"100%"} p={12} className={styles.skills_paper}>
+      <Title c={"gray.1"} mb={"0.25rem"}>
+        {title}
+      </Title>
+      <Text mb={"1.25rem"} size={"1.25rem"} c={"gray.3"}>
         {descr}
       </Text>
       <Flex gap={8} wrap={"wrap"}>

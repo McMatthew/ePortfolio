@@ -1,42 +1,89 @@
 "use client";
-import Drawer from "@/app/components/Drawer/Drawer";
-import commonStyles from "@/app/sections/common.module.css";
 import styles from "./meSection.module.css";
-import { badgeMark, neon } from "@/app/fonts";
+import { badgeMark } from "@/fonts/fonts";
 import {
-  em,
+  Box,
   Flex,
   Grid,
   GridCol,
   Paper,
-  rem,
   Stack,
   Text,
   Title,
 } from "@mantine/core";
 import Marquee from "react-fast-marquee";
 import { JobApplication } from "@/app/sections/Me/components/JobApplication";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { SocialPlate } from "@/app/sections/Me/components/socialPlate";
 import { contacts } from "@/app/configs/contacts";
-import { useMediaQuery } from "@mantine/hooks";
+import { useMediaQuery, useScrollIntoView } from "@mantine/hooks";
 import MeSectionMobile from "@/app/sections/Me/meSectionMobile";
+import { TABS_TITLES } from "@/app/components/Navbar/navbar";
+import Confetti from "react-dom-confetti";
+import { ConfettiConfig } from "dom-confetti";
+import { useNavigation } from "@/app/context/navigationContext";
+import { IconSparkles } from "@tabler/icons-react";
 
 const MeSection = () => {
+  const [alreadyThrow, setAlreadyThrow] = useState(false);
+  const { location } = useNavigation();
   const isMobile = useMediaQuery("(max-width: 768px)");
+  const { scrollIntoView, targetRef } = useScrollIntoView<HTMLDivElement>();
+  const [confetti, setConfetti] = useState(false);
+  const config: ConfettiConfig = {
+    angle: 91,
+    spread: 241,
+    startVelocity: 65,
+    elementCount: 200,
+    dragFriction: 0.12,
+    duration: 3000,
+    stagger: 3,
+    width: "10px",
+    height: "10px",
+    perspective: "661px",
+    colors: ["#a864fd", "#29cdff", "#78ff44", "#ff718d", "#fdff6a"],
+  };
+
+  useEffect(() => {
+    if (!alreadyThrow) {
+      setAlreadyThrow(true);
+      setConfetti(TABS_TITLES.ME === location);
+    }
+    if (location === TABS_TITLES.ME) scrollIntoView({ alignment: "center" });
+  }, [alreadyThrow, location]);
 
   return (
-    <Drawer
-      title={
-        <Text className={`${commonStyles.title} ${badgeMark.className}`}>
-          <span className={commonStyles.capital}>M</span>e...
-        </Text>
-      }
-      navigationTrigger={"me..."}
-      styles={{ body: { height: "calc(100% - 107px)", position: "relative" } }}
-    >
-      <Marquee style={{ borderBottom: "1px solid gainsboro" }}>
+    <>
+      <Box
+        pos={"absolute"}
+        display={"grid"}
+        style={{
+          placeItems: "center",
+          overflow: "hidden",
+          zIndex: 100,
+          userSelect: "none",
+          pointerEvents: "none",
+        }}
+        top={0}
+        right={0}
+        bottom={0}
+        left={0}
+      >
+        <Confetti config={config} active={confetti} />
+      </Box>
+      <Box
+        ref={targetRef}
+        ta={"center"}
+        fw={300}
+        mb={26}
+        fz={32}
+        className={`${badgeMark.className}`}
+      >
+        <IconSparkles /> Contatti
+      </Box>
+      <Marquee>
         <Flex
+          mt={6}
           className={styles.opentoworkCarousel}
           w={"100vw"}
           justify={"space-around"}
@@ -84,15 +131,15 @@ const MeSection = () => {
         <MeSectionMobile />
       ) : (
         <Grid
+          px={10}
           styles={{ inner: { height: "100%" } }}
           columns={30}
-          h={"calc(100% - 5rem)"}
-          mt={"2rem "}
+          mt={10}
         >
-          <GridCol pos={"relative"} span={isMobile ? 30 : 22}>
+          <GridCol pos={"relative"} span={isMobile ? 30 : 20}>
             <JobApplication />
           </GridCol>
-          <GridCol pos={"relative"} h={"100%"} span={8}>
+          <GridCol pos={"relative"} h={"100%"} span={10}>
             <Paper h={"100%"} className={styles.contacts}>
               <Flex h={"100%"} direction={"column"}>
                 <Title className={badgeMark.className}>Contatti</Title>
@@ -100,20 +147,17 @@ const MeSection = () => {
                   Non esitare a contattarmi, per qualunque informazione su di me
                   o su delle opportunità da propormi
                 </Text>
-                <Stack w={"50%"}>
+                <Stack>
                   {contacts.map((props) => (
-                    <SocialPlate key={props.siteName} {...props} />
+                    <SocialPlate key={props.url} {...props} />
                   ))}
                 </Stack>
-                <Title className={`${styles.contact_neon} ${neon.className}`}>
-                  Get in touch!
-                </Title>
               </Flex>
             </Paper>
           </GridCol>
         </Grid>
       )}
-    </Drawer>
+    </>
   );
 };
 export default MeSection;

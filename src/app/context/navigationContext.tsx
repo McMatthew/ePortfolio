@@ -17,6 +17,7 @@ export const NavigationProvider: React.FC<PropsWithChildren> = ({
   children,
 }) => {
   const [location, setLocation] = useState("");
+
   return (
     <NavigationContext.Provider value={{ location, setLocation }}>
       {children}
