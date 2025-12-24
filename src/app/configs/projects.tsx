@@ -1,6 +1,8 @@
 import { StaticImport } from "next/dist/shared/lib/get-img-props";
 import sgc from "../../img/sida.svg";
 import isis from "../../img/isis.jpg";
+import dasf from "../../img/dasf.svg";
+import { Anchor } from "@mantine/core";
 
 export enum BADGE_LABELS {
   Js = "JS",
@@ -15,6 +17,7 @@ export enum BADGE_LABELS {
   Fire = "Firebase",
   Redux = "Redux",
   Next = "Next",
+  Vite = "Vite",
 }
 
 export interface Project {
@@ -25,6 +28,27 @@ export interface Project {
 }
 
 export const Projects: Project[] = [
+  {
+    title: ":DASF, Datagram specifications",
+    description: (
+      <>
+        :DASF è un mio progetto pubblico su GitHub il cui obiettivo è creare
+        specifiche JSON che documentino le richieste UDP similarmente a come
+        YAML si usa per le richieste HTTP, utilizzando un linguaggio custom
+        chiamato proprio DASF.
+        <br />
+        Il progetto è costituito da un editor di codice e un visualizzatore, che
+        legge il file caricato o che si sta creando live e rappresenta
+        visivamente la documentazione che si sta scrivendo. Il progetto è
+        disponibile su{" "}
+        <Anchor target={"_blank"} href={"https://mcmatthew.github.io/dasf/"}>
+          DASF editor
+        </Anchor>
+      </>
+    ),
+    img: dasf,
+    badgeList: [BADGE_LABELS.React, BADGE_LABELS.Vite],
+  },
   {
     title: "Cloud Web App",
     description: (

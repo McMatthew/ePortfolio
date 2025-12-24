@@ -200,6 +200,10 @@
   background-color: #00000055;
   color: #bdbdbd;
 }
+.knoledge_gallery .project_card .badge_list .badge[id="Vite"] {
+  background-color: #b13ffe88;
+  color: #d0b02d;
+}
 
 .goto_about {
   margin-block: 1rem;
