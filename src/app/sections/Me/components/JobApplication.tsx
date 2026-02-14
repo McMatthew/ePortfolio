@@ -1,20 +1,7 @@
 "use client";
-import {
-  Box,
-  Button,
-  Flex,
-  Group,
-  Paper,
-  Stack,
-  Text,
-  Title,
-} from "@mantine/core";
+import { Box, Button, Flex, Group, Paper, Stack, Text, Title } from "@mantine/core";
 import styles from "@/app/sections/Me/meSection.module.css";
-import {
-  IconBriefcase,
-  IconFileFilled,
-  IconMailOpenedFilled,
-} from "@tabler/icons-react";
+import { IconBriefcase, IconFileFilled, IconMailOpenedFilled } from "@tabler/icons-react";
 import { badgeMark, lightFont } from "@/fonts/fonts";
 import Link from "next/link";
 import { downloadFile } from "@/app/utils";

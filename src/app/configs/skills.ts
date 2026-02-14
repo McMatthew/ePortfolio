@@ -4,27 +4,20 @@ import {
   IconGlassFullFilled,
   IconHammer,
   IconPhone,
+  IconProps,
   IconSchool,
   IconStars,
   IconTestPipe,
-  IconUsers,
-  TablerIconsProps,
+  IconUsers
 } from "@tabler/icons-react";
-
-export interface ISkillGraph {
-  [key: string]: {
-    value: number;
-    color: string;
-    tooltip?: React.ReactNode;
-  }[];
-}
+import { JSX } from "react";
 
 export type ISkill = {
   label: string;
   stats: string;
   progress: number;
   color: string;
-  icon: (props: TablerIconsProps) => JSX.Element;
+  icon: (props: IconProps) => JSX.Element;
 };
 
 type ISkills = {

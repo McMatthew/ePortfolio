@@ -1,16 +1,7 @@
 "use client";
 import styles from "./meSection.module.css";
 import { badgeMark } from "@/fonts/fonts";
-import {
-  Box,
-  Flex,
-  Grid,
-  GridCol,
-  Paper,
-  Stack,
-  Text,
-  Title,
-} from "@mantine/core";
+import { Box, Flex, Grid, GridCol, Paper, Stack, Text, Title } from "@mantine/core";
 import Marquee from "react-fast-marquee";
 import { JobApplication } from "@/app/sections/Me/components/JobApplication";
 import React, { useEffect, useState } from "react";

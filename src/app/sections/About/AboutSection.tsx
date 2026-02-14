@@ -1,16 +1,6 @@
 "use client";
 import { skill_resume } from "@/app/configs/skills";
-import {
-  Box,
-  Divider,
-  Flex,
-  Grid,
-  Group,
-  Space,
-  Stack,
-  Text,
-  Title,
-} from "@mantine/core";
+import { Box, Divider, Flex, Grid, Group, Space, Stack, Text, Title } from "@mantine/core";
 import { IconStar, IconUserQuestion } from "@tabler/icons-react";
 import Image from "next/image";
 import me from "../../../img/matteo_bianchi.png";

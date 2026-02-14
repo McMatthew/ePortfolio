@@ -6,7 +6,6 @@ const ProjectCarousel = ({ projects }: { projects: Project[] }) => {
   return (
     <Carousel
       bg={"#010b17"}
-      containScroll={"keepSnaps"}
       withControls
       controlSize={"xs"}
       styles={{

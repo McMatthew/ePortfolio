@@ -1,15 +1,5 @@
 import { ISkill } from "@/app/configs/skills";
-import {
-  Box,
-  Center,
-  Flex,
-  Group,
-  Paper,
-  rem,
-  RingProgress,
-  Text,
-  Title,
-} from "@mantine/core";
+import { Box, Center, Flex, Group, Paper, rem, RingProgress, Text, Title } from "@mantine/core";
 import styles from "./SkillGraph.module.css";
 
 export function StatsRing({

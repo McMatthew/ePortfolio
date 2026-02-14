@@ -1,10 +1,5 @@
 import React from "react";
-import {
-  IconBrandGithub,
-  IconBrandLinkedin,
-  IconMailbox,
-  IconPhone,
-} from "@tabler/icons-react";
+import { IconBrandGithub, IconBrandLinkedin, IconMailbox, IconPhone } from "@tabler/icons-react";
 
 interface Contact {
   placeHolder: string;

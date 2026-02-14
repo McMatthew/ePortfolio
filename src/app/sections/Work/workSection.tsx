@@ -1,15 +1,8 @@
 "use client";
-import {
-  Box,
-  ScrollArea,
-  SimpleGrid,
-  Space,
-  Stack,
-  Tooltip,
-} from "@mantine/core";
+import { Box, ScrollArea, SimpleGrid, Space, Stack, Tooltip } from "@mantine/core";
 import styles from "./workSection.module.css";
 import commonStyles from "../common.module.css";
-import { badgeMark } from "../../../fonts/fonts";
+import { badgeMark } from "@/fonts/fonts";
 import { useEffect, useRef } from "react";
 import Image from "next/image";
 import ProjectCard from "./components/ProjectCard";
